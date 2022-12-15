@@ -4,7 +4,7 @@
  */
 package Tablas;
 
-import Modelo.Persona;
+import Modelo.Paciente;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -12,13 +12,13 @@ import javax.swing.table.AbstractTableModel;
  * @author Victor
  */
 public class VistaTabla extends AbstractTableModel{
-    private Persona uniones[];
+    private Paciente uniones[];
 
-    public Persona[] getUniones() {
+    public Paciente[] getUniones() {
         return uniones;
     }
 
-    public void setUniones(Persona[] uniones) {
+    public void setUniones(Paciente[] uniones) {
         this.uniones = uniones;
     }
     
@@ -50,7 +50,7 @@ public class VistaTabla extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int i, int i1) {
-        Persona u = uniones[i];
+        Paciente u = uniones[i];
         switch(i1) {
             case 0: return (u != null) ? u.getIdentificacion(): "INDEFINIDO";    
             case 1: return (u != null) ? u.getNombres() : "INDEFINIDO";

@@ -14,7 +14,7 @@ public class Cuenta {
     private Integer id;
     private String usuario;
     private String clave;
-    private Persona persona;
+    private Paciente persona;
 
     public Integer getId() {
         return id;
@@ -40,11 +40,11 @@ public class Cuenta {
         this.clave = clave;
     }
 
-    public Persona getPersona() {
+    public Paciente getPersona() {
         return persona;
     }
 
-    public void setPersona(Persona persona) {
+    public void setPersona(Paciente persona) {
         this.persona = persona;
     }
        

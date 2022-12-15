@@ -10,7 +10,7 @@ package Modelo;
  * @author Victor
  */
 
-public class Persona {
+public class Paciente {
     
     private Integer id;
     private String identificacion;
@@ -20,14 +20,14 @@ public class Persona {
     private Rol rol;
     private String telefono;
     private String correo;
-    private String genero;
+    private GeneroComboBox genero;
     private String edad;
     private String molestia;
     private String FechaIngreso;
     private String HoraAtencion;
 
     public String getMolestia() {
-        return molestia;
+        return this.molestia;
     }
 
     public void setMolestia(String molestia) {
@@ -35,7 +35,7 @@ public class Persona {
     }
 
     public String getFechaIngreso() {
-        return FechaIngreso;
+        return this.FechaIngreso;
     }
 
     public void setFechaIngreso(String FechaIngreso) {
@@ -43,17 +43,15 @@ public class Persona {
     }
 
     public String getHoraAtencion() {
-        return HoraAtencion;
+        return this.HoraAtencion;
     }
 
     public void setHoraAtencion(String HoraAtencion) {
         this.HoraAtencion = HoraAtencion;
     }
     
-    
-
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Integer id) {
@@ -61,7 +59,7 @@ public class Persona {
     }
 
     public String getEdad() {
-        return edad;
+        return this.edad;
     }
 
     public void setEdad(String edad) {
@@ -69,7 +67,7 @@ public class Persona {
     }
     
     public String getIdentificacion() {
-        return identificacion;
+        return this.identificacion;
     }
 
     public void setIdentificacion(String identificacion) {
@@ -77,7 +75,7 @@ public class Persona {
     }
 
     public String getNombres() {
-        return nombres;
+        return this.nombres;
     }
 
     public void setNombres(String nombres) {
@@ -85,7 +83,7 @@ public class Persona {
     }
 
     public String getApellidos() {
-        return apellidos;
+        return this.apellidos;
     }
 
     public void setApellidos(String apellidos) {
@@ -93,7 +91,7 @@ public class Persona {
     }
 
     public String getDireccion() {
-        return direccion;
+        return this.direccion;
     }
 
     public void setDireccion(String direccion) {
@@ -101,7 +99,7 @@ public class Persona {
     }
 
     public Rol getRol() {
-        return rol;
+        return this.rol;
     }
 
     public void setRol(Rol rol) {
@@ -109,7 +107,7 @@ public class Persona {
     }
 
     public String getTelefono() {
-        return telefono;
+        return this.telefono;
     }
 
     public void setTelefono(String telefono) {
@@ -117,19 +115,26 @@ public class Persona {
     }
 
     public String getCorreo() {
-        return correo;
+        return this.correo;
     }
 
     public void setCorreo(String correo) {
         this.correo = correo;
     }
 
-    public String getGenero() {
-        return genero;
+    public GeneroComboBox getGenero() {
+        return this.genero;
     }
 
-    public void setGenero(String genero) {
+    public void setGenero(GeneroComboBox genero) {
         this.genero = genero;
     }
 
+    @Override
+    public String toString() {
+        return id + ", identificacion =" + identificacion + ", nombres=" + nombres + ", apellidos=" + apellidos + ", direccion=" + direccion + ", rol=" + rol + ", telefono=" + telefono + ", correo=" + correo + ", genero=" + genero + ", edad=" + edad + ", molestia=" + molestia + ", FechaIngreso=" + FechaIngreso + ", HoraAtencion=" + HoraAtencion;
+    }
+    
+    
+    
 }
