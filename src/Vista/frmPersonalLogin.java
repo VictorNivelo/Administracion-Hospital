@@ -158,12 +158,17 @@ public class frmPersonalLogin extends javax.swing.JFrame {
 
     private void btnIngresarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarLoginActionPerformed
         // TODO add your handling code here:
-        if(txtNombreIngresoUsuario.getText().isEmpty() || txtContraseñaIngresoUsuario.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos","Error",JOptionPane.ERROR_MESSAGE);
-        }else{
-            frmPersonalInterfazPrincipal abrir = new frmPersonalInterfazPrincipal();
-            abrir.setVisible(true);
-            this.setVisible(false);
+
+        if(txtNombreIngresoUsuario.getText().isEmpty() || txtContraseñaIngresoUsuario.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
+        }else {
+            if(txtNombreIngresoUsuario.getText().contains("@") & txtNombreIngresoUsuario.getText().contains(".com")){
+                frmPersonalInterfazPrincipal abrir = new frmPersonalInterfazPrincipal();
+                abrir.setVisible(true);
+                this.setVisible(false);
+            }else{
+                JOptionPane.showMessageDialog(null, "El correo no contiene un @ y un .com","Error",JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_btnIngresarLoginActionPerformed
 

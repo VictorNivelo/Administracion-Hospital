@@ -10,8 +10,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -58,6 +56,11 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
         jLabel5.setText("Fecha de la cita");
 
         txtFechaCita.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtFechaCita.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFechaCitaKeyTyped(evt);
+            }
+        });
 
         jLabel7.setText("Horarios de atencion");
 
@@ -190,6 +193,22 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void txtFechaCitaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFechaCitaKeyTyped
+        // TODO add your handling code here:
+        int key = evt.getKeyChar();
+
+        boolean numeros = key >= 30 && key <= 39;
+        boolean slash = key >= 47;
+        
+        if (!(numeros || slash)) {
+            evt.consume();
+        }
+        
+        if(txtFechaCita.getText().length()>=10){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtFechaCitaKeyTyped
 
     /**
      * @param args the command line arguments

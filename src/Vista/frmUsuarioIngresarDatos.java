@@ -5,6 +5,7 @@
 package Vista;
 
 import Utilidades.Utilidades;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -103,6 +104,9 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtNombrePacienteKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombrePacienteKeyTyped(evt);
+            }
         });
 
         jLabel3.setText("Nombres");
@@ -113,6 +117,9 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
         txtApellidoPaciente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtApellidoPacienteKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidoPacienteKeyTyped(evt);
             }
         });
 
@@ -134,7 +141,7 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 0, 0));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("*Ingresar solo numeros*");
+        jLabel10.setText("*Ingresar solo numeros, maximo 3 numeros*");
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 51, 51));
@@ -258,17 +265,17 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
-                .addGap(15, 15, 15))
+                .addContainerGap())
         );
 
         btnRegresar.setText("REGRESAR");
@@ -368,12 +375,16 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
         if(txtNumeroCedula.getText().length()>=10){
             evt.consume();
         }
+
     }//GEN-LAST:event_txtNumeroCedulaKeyTyped
 
     private void txtEdadPacienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEdadPacienteKeyTyped
         // TODO add your handling code here:
         Character c = evt.getKeyChar();
         if(!Character.isDigit(c)){
+            evt.consume();
+        }
+        if(txtEdadPaciente.getText().length()>=3){
             evt.consume();
         }
     }//GEN-LAST:event_txtEdadPacienteKeyTyped
@@ -437,6 +448,40 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
         abrir.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegresarInicioActionPerformed
+
+    private void txtNombrePacienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombrePacienteKeyTyped
+        // TODO add your handling code here:
+        int key = evt.getKeyChar();
+
+        boolean mayusculas = key >= 65 && key <= 90;
+        boolean minusculas = key >= 97 && key <= 122;
+        boolean espacio = key == 32;
+
+        if (!(minusculas || mayusculas || espacio)) {
+            evt.consume();
+        }
+
+        if(txtNombrePaciente.getText().length()>=30){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNombrePacienteKeyTyped
+
+    private void txtApellidoPacienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoPacienteKeyTyped
+        // TODO add your handling code here:
+        int key = evt.getKeyChar();
+
+        boolean mayusculas = key >= 65 && key <= 90;
+        boolean minusculas = key >= 97 && key <= 122;
+        boolean espacio = key == 32;
+
+        if (!(minusculas || mayusculas || espacio)) {
+            evt.consume();
+        }
+
+        if(txtApellidoPaciente.getText().length()>=30){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtApellidoPacienteKeyTyped
 
     /**
      * @param args the command line arguments
