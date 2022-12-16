@@ -39,7 +39,7 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblCitas = new javax.swing.JTable();
+        tblCitasSinAtender = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -78,7 +78,7 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CITAS POR ATENDER");
 
-        jScrollPane1.setViewportView(tblCitas);
+        jScrollPane1.setViewportView(tblCitasSinAtender);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -424,7 +424,7 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
     public static javax.swing.JTextField jTextField5;
     public static javax.swing.JTextField jTextField6;
     public static javax.swing.JTextField jTextField8;
-    public static javax.swing.JTable tblCitas;
+    public static javax.swing.JTable tblCitasSinAtender;
     public static javax.swing.JTextField txtEdad;
     public static javax.swing.JTextField txtNumeroCedula;
     public static javax.swing.JTextField txtNumeroTelefono;

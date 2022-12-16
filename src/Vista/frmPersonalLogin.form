@@ -49,18 +49,19 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel1" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="btnRegresar" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="167" max="32767" attributes="0"/>
                                   <Component id="btnIngresarLogin" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="txtContraseñaIngresoUsuario" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtNombreIngresoUsuario" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel2" alignment="0" pref="305" max="32767" attributes="0"/>
+                              <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel3" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -86,15 +87,15 @@
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="txtContraseñaIngresoUsuario" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="15" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnIngresarLogin" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnRegresar" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jLabel5" pref="0" max="32767" attributes="0"/>
+                      <Component id="jLabel5" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -103,10 +104,10 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="24" style="0"/>
+              <Font name="Segoe UI" size="36" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Hospital &quot; xd &quot;"/>
+            <Property name="text" type="java.lang.String" value="Hospital &quot;Isidro&quot;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
