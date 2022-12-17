@@ -158,6 +158,8 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
 
     private void btnAgendarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarCitaActionPerformed
         // TODO add your handling code here:
+        frmPersonalCitasPorAtender abrir = new frmPersonalCitasPorAtender();
+        abrir.setVisible(false);
         try {
             if(txtFechaCita.getText().isEmpty() || cbxHorarioAtencion.getSelectedItem().toString().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos", "Error", JOptionPane.ERROR_MESSAGE);

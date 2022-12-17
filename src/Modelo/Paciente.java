@@ -14,9 +14,11 @@ import java.util.ArrayList;
 
 public class Paciente {
     
+    //elemetos rol
     private Integer id;
     private Rol rol;
     
+    //elementos pacientes
     private String identificacion;
     private String nombres;
     private String apellidos;

@@ -71,6 +71,14 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CITAS POR ATENDER");
 
+        tblCitasSinAtender.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Cedula", "Nombres", "Apellidos", "Edad", "Genero", "Telefono", "Molestia", "Fecha cita", "Hora cita"
+            }
+        ));
         jScrollPane1.setViewportView(tblCitasSinAtender);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
