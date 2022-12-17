@@ -29,7 +29,7 @@ public class VistaTabla extends AbstractTableModel{
 
     @Override
     public int getRowCount() {
-        return uniones.length;
+        return 1;
     }
 
     @Override

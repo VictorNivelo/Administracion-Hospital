@@ -34,9 +34,7 @@ public class Controlador {
 //    public void setPacienteEnlazado(Paciente[] pacienteEnlazado) {
 //        this.pacienteEnlazado = pacienteEnlazado;
 //    }
-    
-    
-    
+
     public static GeneroComboBox getgeneroCombo(Integer i) {
         return getgeneroCombo(i).values()[i];
     }

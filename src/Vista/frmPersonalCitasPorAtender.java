@@ -4,16 +4,13 @@
  */
 package Vista;
 
-import Controlador.Controlador;
-import Tablas.VistaTabla;
 
 /**
  *
  * @author Victor
  */
 public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
-    private VistaTabla presentarTabla = new VistaTabla();
-    public Controlador crearControlador;
+
 
     /**
      * Creates new form frmPersonalCitasPorAtender
@@ -22,26 +19,6 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    
-//    public static void AgregarPaciente() {
-//        crearControlador.cadenaPaciente.setIdentificacion(Vista.frmUsuarioIngresarDatos.txtNumeroCedula.getText());
-//        crearControlador.cadenaPaciente.setNombres(Vista.frmUsuarioIngresarDatos.txtNombrePaciente.getText());
-//        crearControlador.cadenaPaciente.setApellidos(Vista.frmUsuarioIngresarDatos.txtApellidoPaciente.getText());
-//        crearControlador.cadenaPaciente.setEdad(Vista.frmUsuarioIngresarDatos.txtApellidoPaciente.getText());
-//        crearControlador.cadenaPaciente.setGenero((GeneroComboBox) Vista.frmUsuarioIngresarDatos.cbxGeneroPaciente.getSelectedItem());
-//        crearControlador.cadenaPaciente.setMolestia(Vista.frmUsuarioIngresarDatos.txaMolestias.getText());
-//        crearControlador.cadenaPaciente.setTelefono(Vista.frmUsuarioIngresarDatos.txtNumeroTelefono.getText());
-//        crearControlador.cadenaPaciente.setFechaIngreso(Vista.frmUsuarioSeleccionarFecha.txtFechaCita.getText());
-//        crearControlador.cadenaPaciente.setHoraAtencion((String) Vista.frmUsuarioSeleccionarFecha.cbxHorarioAtencion.getSelectedItem());
-//    }
-//    
-//    private void presentarTabla() {
-//        
-//        if(crearControlador != null){
-//            tblCitasSinAtender.setModel(presentarTabla);
-//            tblCitasSinAtender.updateUI();
-//        }
-//    }
 
     /**
      * This method is called from within the constructor to initialize the form.

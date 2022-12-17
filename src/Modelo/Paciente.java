@@ -15,29 +15,28 @@ import java.util.ArrayList;
 public class Paciente {
     
     private Integer id;
+    private Rol rol;
+    
     private String identificacion;
     private String nombres;
     private String apellidos;
-    private String direccion;
-    private Rol rol;
     private String telefono;
-    private String correo;
     private GeneroComboBox genero;
     private String edad;
     private String molestia;
     private String FechaIngreso;
     private String HoraAtencion;
-    private String generoCBX;
+    
     private Paciente unionPaciente[];
     
     private ArrayList <Paciente> pacienteU;
     
-    public Paciente(String identificacionL, String nombresL, String apellidosL, String edadL, String generoL, String telefonoL, String fechaIngresoL, String horaAtencionL, String molestiasL){
+    public Paciente(String identificacionL, String nombresL, String apellidosL, String edadL, GeneroComboBox generoL, String telefonoL, String fechaIngresoL, String horaAtencionL, String molestiasL){
         this.identificacion = identificacionL;
         this.nombres = nombresL;
         this.apellidos = apellidosL;
         this.edad = edadL;
-        this.generoCBX = generoL;
+        this.genero = generoL;
         this.telefono = telefonoL;
         this.FechaIngreso = fechaIngresoL;
         this.HoraAtencion = horaAtencionL;
@@ -110,14 +109,6 @@ public class Paciente {
         this.apellidos = apellidos;
     }
 
-    public String getDireccion() {
-        return this.direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
     public Rol getRol() {
         return this.rol;
     }
@@ -132,14 +123,6 @@ public class Paciente {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    public String getCorreo() {
-        return this.correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
     }
 
     public GeneroComboBox getGenero() {
@@ -161,9 +144,7 @@ public class Paciente {
 
     @Override
     public String toString() {
-        return id + ", identificacion =" + identificacion + ", nombres=" + nombres + ", apellidos=" + apellidos + ", direccion=" + direccion + ", rol=" + rol + ", telefono=" + telefono + ", correo=" + correo + ", genero=" + genero + ", edad=" + edad + ", molestia=" + molestia + ", FechaIngreso=" + FechaIngreso + ", HoraAtencion=" + HoraAtencion;
+        return " identificacion =" + identificacion + ", nombres=" + nombres + ", apellidos=" + apellidos + ", telefono=" + telefono + ", genero=" + genero + ", edad=" + edad + ", molestia=" + molestia + ", FechaIngreso=" + FechaIngreso + ", HoraAtencion=" + HoraAtencion;
     }
-    
-    
-    
+ 
 }
