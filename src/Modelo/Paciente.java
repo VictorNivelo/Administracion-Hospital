@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Victor
@@ -25,6 +27,24 @@ public class Paciente {
     private String molestia;
     private String FechaIngreso;
     private String HoraAtencion;
+    private String generoCBX;
+    private Paciente unionPaciente[];
+    
+    private ArrayList <Paciente> pacienteU;
+    
+    public Paciente(String identificacionL, String nombresL, String apellidosL, String edadL, String generoL, String telefonoL, String fechaIngresoL, String horaAtencionL, String molestiasL){
+        this.identificacion = identificacionL;
+        this.nombres = nombresL;
+        this.apellidos = apellidosL;
+        this.edad = edadL;
+        this.generoCBX = generoL;
+        this.telefono = telefonoL;
+        this.FechaIngreso = fechaIngresoL;
+        this.HoraAtencion = horaAtencionL;
+        this.molestia = molestiasL;
+        
+        this.pacienteU = new ArrayList(); 
+    }
 
     public String getMolestia() {
         return this.molestia;
@@ -129,6 +149,15 @@ public class Paciente {
     public void setGenero(GeneroComboBox genero) {
         this.genero = genero;
     }
+
+    public Paciente[] getUnionPaciente() {
+        return unionPaciente;
+    }
+
+    public void setUnionPaciente(Paciente[] unionPaciente) {
+        this.unionPaciente = unionPaciente;
+    }
+    
 
     @Override
     public String toString() {

@@ -9,5 +9,5 @@ package Modelo;
  * @author Victor
  */
 public enum GeneroComboBox {
-    Masculino, Femenino, No_Binario
+    Masculino, Femenino
 }

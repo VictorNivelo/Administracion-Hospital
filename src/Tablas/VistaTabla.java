@@ -47,21 +47,31 @@ public class VistaTabla extends AbstractTableModel{
             default: return null;
         }
     }
-
+    
     @Override
     public Object getValueAt(int i, int i1) {
         Paciente u = uniones[i];
         switch(i1) {
-            case 0: return (u != null) ? u.getIdentificacion(): "INDEFINIDO";    
-            case 1: return (u != null) ? u.getNombres() : "INDEFINIDO";
-            case 2: return (u != null) ? u.getApellidos() : "INDEFINIDO";
-            case 3: return (u != null) ? u.getEdad() : "INDEFINIDO";
-            case 4: return (u != null) ? u.getGenero(): "INDEFINIDO";
-            case 5: return (u != null) ? u.getMolestia() : "INDEFINIDO";
-            case 6: return (u != null) ? u.getFechaIngreso() : "INDEFINIDO";
-            case 7: return (u != null) ? u.getHoraAtencion() : "INDEFINIDO";
-            case 8: return (u != null) ? u.getTelefono() : "INDEFINIDO";
-            default: return null;
+            case 0: 
+                return (u != null) ? u.getIdentificacion(): "INDEFINIDO";    
+            case 1: 
+                return (u != null) ? u.getNombres() : "INDEFINIDO";
+            case 2: 
+                return (u != null) ? u.getApellidos() : "INDEFINIDO";
+            case 3: 
+                return (u != null) ? u.getEdad() : "INDEFINIDO";
+            case 4: 
+                return (u != null) ? u.getGenero(): "INDEFINIDO";
+            case 5: 
+                return (u != null) ? u.getMolestia() : "INDEFINIDO";
+            case 6: 
+                return (u != null) ? u.getFechaIngreso() : "INDEFINIDO";
+            case 7: 
+                return (u != null) ? u.getHoraAtencion() : "INDEFINIDO";
+            case 8: 
+                return (u != null) ? u.getTelefono() : "INDEFINIDO";
+            default: 
+                return null;
         }
     }
 }

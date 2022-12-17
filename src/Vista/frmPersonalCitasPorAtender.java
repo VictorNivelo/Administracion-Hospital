@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import Controlador.Controlador;
 import Tablas.VistaTabla;
 
 /**
@@ -12,6 +13,7 @@ import Tablas.VistaTabla;
  */
 public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
     private VistaTabla presentarTabla = new VistaTabla();
+    public Controlador crearControlador;
 
     /**
      * Creates new form frmPersonalCitasPorAtender
@@ -19,12 +21,26 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
     public frmPersonalCitasPorAtender() {
         initComponents();
         this.setLocationRelativeTo(null);
-//        presentarTabla();
     }
     
-//    private void presentarTabla(){
-//        tblCitas.setModel(presentarTabla);
-//        tblCitas.updateUI();
+//    public static void AgregarPaciente() {
+//        crearControlador.cadenaPaciente.setIdentificacion(Vista.frmUsuarioIngresarDatos.txtNumeroCedula.getText());
+//        crearControlador.cadenaPaciente.setNombres(Vista.frmUsuarioIngresarDatos.txtNombrePaciente.getText());
+//        crearControlador.cadenaPaciente.setApellidos(Vista.frmUsuarioIngresarDatos.txtApellidoPaciente.getText());
+//        crearControlador.cadenaPaciente.setEdad(Vista.frmUsuarioIngresarDatos.txtApellidoPaciente.getText());
+//        crearControlador.cadenaPaciente.setGenero((GeneroComboBox) Vista.frmUsuarioIngresarDatos.cbxGeneroPaciente.getSelectedItem());
+//        crearControlador.cadenaPaciente.setMolestia(Vista.frmUsuarioIngresarDatos.txaMolestias.getText());
+//        crearControlador.cadenaPaciente.setTelefono(Vista.frmUsuarioIngresarDatos.txtNumeroTelefono.getText());
+//        crearControlador.cadenaPaciente.setFechaIngreso(Vista.frmUsuarioSeleccionarFecha.txtFechaCita.getText());
+//        crearControlador.cadenaPaciente.setHoraAtencion((String) Vista.frmUsuarioSeleccionarFecha.cbxHorarioAtencion.getSelectedItem());
+//    }
+//    
+//    private void presentarTabla() {
+//        
+//        if(crearControlador != null){
+//            tblCitasSinAtender.setModel(presentarTabla);
+//            tblCitasSinAtender.updateUI();
+//        }
 //    }
 
     /**
@@ -68,7 +84,7 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         btnAsignarMedicamento = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CITAS POR ATENDER");
@@ -246,10 +262,10 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
 
         btnAsignarMedicamento.setText("ASIGNAR MEDICAMENTO");
 
-        jButton1.setText("REGRESAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnRegresar.setText("REGRESAR");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRegresarActionPerformed(evt);
             }
         });
 
@@ -268,7 +284,7 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
                             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField4)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -291,7 +307,7 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAsignarMedicamento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btnRegresar)
                 .addContainerGap())
         );
 
@@ -352,12 +368,12 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtNumeroTelefonoKeyTyped
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
         frmPersonalInterfazPrincipal abrir = new frmPersonalInterfazPrincipal();
         abrir.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -396,7 +412,7 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAsignarMedicamento;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
