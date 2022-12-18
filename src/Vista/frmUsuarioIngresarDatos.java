@@ -5,7 +5,6 @@
 package Vista;
 
 import Utilidades.Utilidades;
-import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,7 +19,7 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
     public frmUsuarioIngresarDatos() {
         initComponents();
         this.setLocationRelativeTo(null);
-        cargarCombo();
+//        cargarCombo();
     }
 
     
@@ -74,7 +73,7 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
         jPanel4.setForeground(new java.awt.Color(204, 255, 255));
 
         jLabel1.setBackground(new java.awt.Color(204, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("INGRESAR DATOS DEL PACIENTE");
 
@@ -124,6 +123,13 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
         });
 
         jLabel5.setText("Genero");
+
+        cbxGeneroPaciente.setSelectedItem(null);
+        cbxGeneroPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbxGeneroPacienteMouseClicked(evt);
+            }
+        });
 
         jLabel6.setText("Edad");
 
@@ -352,7 +358,7 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
         String cedula = txtNumeroCedula.getText();
         String telefono = txtNumeroTelefono.getText();
         
-        if(txaMolestias.getText().isEmpty() || txtNombrePaciente.getText().isEmpty() || txtApellidoPaciente.getText().isEmpty() || txtEdadPaciente.getText().isEmpty() || cbxGeneroPaciente.getSelectedItem().toString().isEmpty()){
+        if(txaMolestias.getText().isEmpty() || txtNombrePaciente.getText().isEmpty() || txtApellidoPaciente.getText().isEmpty() || txtEdadPaciente.getText().isEmpty() || cbxGeneroPaciente.getSelectedItem() == null){
             JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos","Error",JOptionPane.ERROR_MESSAGE);
         }
         else if(telefono.length()<10){
@@ -483,6 +489,11 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtApellidoPacienteKeyTyped
+
+    private void cbxGeneroPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbxGeneroPacienteMouseClicked
+        // TODO add your handling code here:
+        cargarCombo();
+    }//GEN-LAST:event_cbxGeneroPacienteMouseClicked
 
     /**
      * @param args the command line arguments

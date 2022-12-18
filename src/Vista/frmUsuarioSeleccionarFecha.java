@@ -62,9 +62,13 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel7.setText("Horarios de atencion");
 
+        cbxHorarioAtencion.setMaximumRowCount(9);
         cbxHorarioAtencion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "7:00 - 8:00", "8:00 - 9:00", "9:00 - 10:00", "10:00 - 11:00", "11:00 -12:00", "13:00 - 14:00", "15:00 - 16:00", "16:00 - 17:00", "17:00 - 18:00" }));
+        cbxHorarioAtencion.setSelectedItem(null);
+        cbxHorarioAtencion.setToolTipText("");
 
         jLabel2.setBackground(new java.awt.Color(255, 153, 153));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 11)); // NOI18N
@@ -89,7 +93,7 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RecursosGraficosFondos/CalendarioIcono.png"))); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Seleccionar fecha para la cita");
 
@@ -158,10 +162,10 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
 
     private void btnAgendarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarCitaActionPerformed
         // TODO add your handling code here:
-        frmPersonalCitasPorAtender abrir = new frmPersonalCitasPorAtender();
-        abrir.setVisible(false);
+//        frmPersonalCitasPorAtender abrir = new frmPersonalCitasPorAtender();
+//        abrir.setVisible(false);
         try {
-            if(txtFechaCita.getText().isEmpty() || cbxHorarioAtencion.getSelectedItem().toString().isEmpty()) {
+            if(txtFechaCita.getText().isEmpty() || cbxHorarioAtencion.getSelectedItem() == null) {
                 JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
             }
             else{
