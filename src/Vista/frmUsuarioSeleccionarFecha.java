@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 /**
  *
@@ -32,6 +33,15 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
         
     }
     
+    public boolean ExisteEnTabla(JTable tabla, String cedula, int col) {
+        boolean Existe = false;
+        for (int i = 0; i < tabla.getRowCount(); i++) {
+            if (tabla.getValueAt(i, col).equals(cedula)) {
+                Existe = true;
+            }
+        }
+        return Existe;
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -178,6 +188,8 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
                 boolean resultado = true;
                 fecha1 = txtFechaCita.getText();
                 resultado = validarFecha(fecha1);
+                String CbxHoraAtencion = cbxHorarioAtencion.getSelectedItem().toString();
+                String cedula = Vista.frmUsuarioIngresarDatos.txtNumeroCedula.getText();
                 
                 SimpleDateFormat formatoDeFecha = new SimpleDateFormat("dd/MM/yyyy");
                 Calendar calendario = GregorianCalendar.getInstance();
@@ -186,9 +198,18 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
                 Date fechaSeleccionada = formatoDeFecha.parse(Fe);
                 Date fechaLimite = formatoDeFecha.parse("30/12/2030");
                 
+                
                 if(resultado == true) {
+                    frmPersonalCitasPorAtender abrir = new frmPersonalCitasPorAtender();
+                    abrir.setVisible(false);
                     if (fechaSeleccionada.before(fecha) ) {
                         JOptionPane.showMessageDialog(null, "La fecha seleccionada ya ha pasado");
+                    }
+                    else if (ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, fecha1, 7) == true & ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, CbxHoraAtencion, 8)) {
+                        JOptionPane.showMessageDialog(null, "La hora de atencion ya no esta disponible");
+                    }
+                    else if (ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, cedula, 0) == true) {
+                        JOptionPane.showMessageDialog(null, "El usuario con numero de cedula "+cedula+ " ya tiene una cita agendada ");
                     }
                     else if(fechaSeleccionada.after(fechaLimite)){
                         JOptionPane.showMessageDialog(null, "La fecha seleccionada es muy lejana");
@@ -220,6 +241,7 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
                         
 //                        dispose();
                     }
+                    
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "El formato de la fecha esta mal, Por favor revisar");

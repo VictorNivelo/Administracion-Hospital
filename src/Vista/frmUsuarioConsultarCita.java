@@ -21,16 +21,15 @@ public class frmUsuarioConsultarCita extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
-    public boolean ExisteEnTabla(JTable tabla, String cedula, int col) {
+    public boolean ExisteEnTabla(JTable tabla, String dto, int col) {
         boolean Existe = false;
         for (int i = 0; i < tabla.getRowCount(); i++) {
-            if (tabla.getValueAt(0, col).equals(cedula)) {
+            if (tabla.getValueAt(i, col).equals(dto)) {
                 Existe = true;
             }
         }
         return Existe;
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -168,7 +167,7 @@ public class frmUsuarioConsultarCita extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "La cedula tiene menos de 10 digitos", "CEDULA MAL ESTABLECIDA", JOptionPane.ERROR_MESSAGE);
         }
         else if(ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, cedula, 0)== true){
-            JOptionPane.showMessageDialog(null, "Tiene cita agendada");
+            JOptionPane.showMessageDialog(null, "Tiene cita agendada para la fecha: ");
         }else{
             JOptionPane.showMessageDialog(null, "No cuenta con una cita disponible");
         }
