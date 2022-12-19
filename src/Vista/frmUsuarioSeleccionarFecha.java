@@ -29,7 +29,9 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
     public frmUsuarioSeleccionarFecha() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -181,12 +183,17 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
                 Calendar calendario = GregorianCalendar.getInstance();
                 Date fecha = calendario.getTime();
                 String Fe = txtFechaCita.getText();
-                Date fechaSe = formatoDeFecha.parse(Fe);
+                Date fechaSeleccionada = formatoDeFecha.parse(Fe);
+                Date fechaLimite = formatoDeFecha.parse("30/12/2030");
                 
                 if(resultado == true) {
-                    if (fechaSe.before(fecha)) {
+                    if (fechaSeleccionada.before(fecha) ) {
                         JOptionPane.showMessageDialog(null, "La fecha seleccionada ya ha pasado");
-                    }else{
+                    }
+                    else if(fechaSeleccionada.after(fechaLimite)){
+                        JOptionPane.showMessageDialog(null, "La fecha seleccionada es muy lejana");
+                    }
+                    else{
                         String NumeroCedula = Vista.frmUsuarioIngresarDatos.txtNumeroCedula.getText();
                         String NombrePaciente = Vista.frmUsuarioIngresarDatos.txtNombrePaciente.getText();
                         String ApellidoPaciente = Vista.frmUsuarioIngresarDatos.txtApellidoPaciente.getText();
@@ -210,6 +217,8 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
                         txtFechaCita.setText("");
                         cbxHorarioAtencion.setSelectedItem("");
                         JOptionPane.showMessageDialog(null, "Cita agendada con exito");
+                        
+                        dispose();
                     }
                 }
                 else{
