@@ -5,6 +5,7 @@
 package Vista;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 /**
  *
@@ -18,6 +19,16 @@ public class frmUsuarioConsultarCita extends javax.swing.JFrame {
     public frmUsuarioConsultarCita() {
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+    
+    public boolean ExisteEnTabla(JTable tabla, String cedula, int col) {
+        boolean Existe = false;
+        for (int i = 0; i < tabla.getRowCount(); i++) {
+            if (tabla.getValueAt(0, col).equals(cedula)) {
+                Existe = true;
+            }
+        }
+        return Existe;
     }
     
 
@@ -148,11 +159,18 @@ public class frmUsuarioConsultarCita extends javax.swing.JFrame {
     private void btnVerificarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarCitaActionPerformed
         // TODO add your handling code here:
         String cedula = txtNumeroCedula.getText();
+        frmPersonalCitasPorAtender abrir = new frmPersonalCitasPorAtender();
+        abrir.setVisible(false);
         if(txtNumeroCedula.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese el numero de cedula","Error",JOptionPane.ERROR_MESSAGE);
         }
         else if(cedula.length() < 10) {
             JOptionPane.showMessageDialog(null, "La cedula tiene menos de 10 digitos", "CEDULA MAL ESTABLECIDA", JOptionPane.ERROR_MESSAGE);
+        }
+        else if(ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, cedula, 0)== true){
+            JOptionPane.showMessageDialog(null, "Tiene cita agendada");
+        }else{
+            JOptionPane.showMessageDialog(null, "No cuenta con una cita disponible");
         }
         
 //        if(lblDisponibilidadCita.getText().isEmpty()){

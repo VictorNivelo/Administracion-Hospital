@@ -207,18 +207,18 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
                         Paciente claseauto = new Paciente(NumeroCedula, NombrePaciente, ApellidoPaciente, EdadPaciente, GeneroPaciente, TelefonoPaciente, MolestiaPaciente, FechaAtencion, HoraAtencion);
                         contenedor.add(claseauto);
 
-                        Vista.frmUsuarioIngresarDatos.txtNumeroCedula.setText("");
-                        Vista.frmUsuarioIngresarDatos.txtNombrePaciente.setText("");
-                        Vista.frmUsuarioIngresarDatos.txtApellidoPaciente.setText("");
-                        Vista.frmUsuarioIngresarDatos.txtEdadPaciente.setText("");
-                        Vista.frmUsuarioIngresarDatos.cbxGeneroPaciente.setSelectedItem("");
-                        Vista.frmUsuarioIngresarDatos.txtNumeroTelefono.setText("");
-                        Vista.frmUsuarioIngresarDatos.txaMolestias.setText("");
-                        txtFechaCita.setText("");
-                        cbxHorarioAtencion.setSelectedItem("");
+//                        Vista.frmUsuarioIngresarDatos.txtNumeroCedula.setText("");
+//                        Vista.frmUsuarioIngresarDatos.txtNombrePaciente.setText("");
+//                        Vista.frmUsuarioIngresarDatos.txtApellidoPaciente.setText("");
+//                        Vista.frmUsuarioIngresarDatos.txtEdadPaciente.setText("");
+//                        Vista.frmUsuarioIngresarDatos.cbxGeneroPaciente.setSelectedItem("");
+//                        Vista.frmUsuarioIngresarDatos.txtNumeroTelefono.setText("");
+//                        Vista.frmUsuarioIngresarDatos.txaMolestias.setText("");
+//                        txtFechaCita.setText("");
+//                        cbxHorarioAtencion.setSelectedItem("");
                         JOptionPane.showMessageDialog(null, "Cita agendada con exito");
                         
-                        dispose();
+//                        dispose();
                     }
                 }
                 else{
