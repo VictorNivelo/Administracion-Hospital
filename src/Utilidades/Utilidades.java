@@ -4,8 +4,6 @@
  */
 package Utilidades;
 
-import Modelo.GeneroComboBox;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,18 +12,18 @@ import javax.swing.JOptionPane;
  */
 public class Utilidades extends Vista.frmUsuarioIngresarDatos{
     
-    //obtener el valor de la clase enum GeneroComboBox
-    public static JComboBox cargarComboGenero(JComboBox cbx){
-        cbx.removeAllItems();
-        for(GeneroComboBox tipo: GeneroComboBox.values()) {
-            cbx.addItem(tipo);
-        }
-        return cbx;
-    }
-    
-    public static GeneroComboBox getComboGenero(JComboBox  cbx){
-        return (GeneroComboBox)cbx.getSelectedItem();
-    }
+//    //obtener el valor de la clase enum GeneroComboBox
+//    public static JComboBox cargarComboGenero(JComboBox cbx){
+//        cbx.removeAllItems();
+//        for(GeneroComboBox tipo: GeneroComboBox.values()) {
+//            cbx.addItem(tipo);
+//        }
+//        return cbx;
+//    }
+//    
+//    public static GeneroComboBox getComboGenero(JComboBox  cbx){
+//        return (GeneroComboBox)cbx.getSelectedItem();
+//    }
     
     public static String Cedula(){
         String NumeroCedula = txtNumeroCedula.getText();

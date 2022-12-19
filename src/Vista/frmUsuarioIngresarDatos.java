@@ -4,7 +4,6 @@
  */
 package Vista;
 
-import Utilidades.Utilidades;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,14 +18,9 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
     public frmUsuarioIngresarDatos() {
         initComponents();
         this.setLocationRelativeTo(null);
-//        cargarCombo();
     }
 
-    
-    //Llamar al combo boxGernero declarado en la clase generocombobox
-    private void cargarCombo(){
-        Utilidades.cargarComboGenero(cbxGeneroPaciente);
-    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -124,10 +118,11 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
 
         jLabel5.setText("Genero");
 
+        cbxGeneroPaciente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maculino", "Femenino" }));
         cbxGeneroPaciente.setSelectedItem(null);
-        cbxGeneroPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cbxGeneroPacienteMouseClicked(evt);
+        cbxGeneroPaciente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cbxGeneroPacienteKeyPressed(evt);
             }
         });
 
@@ -438,7 +433,7 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
     private void txtEdadPacienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEdadPacienteKeyPressed
         // TODO add your handling code here:
         if(evt.getKeyCode() == evt.VK_ENTER){
-            txtNumeroTelefono.requestFocus();
+            cbxGeneroPaciente.requestFocus();
         }
     }//GEN-LAST:event_txtEdadPacienteKeyPressed
 
@@ -490,10 +485,12 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtApellidoPacienteKeyTyped
 
-    private void cbxGeneroPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbxGeneroPacienteMouseClicked
+    private void cbxGeneroPacienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxGeneroPacienteKeyPressed
         // TODO add your handling code here:
-        cargarCombo();
-    }//GEN-LAST:event_cbxGeneroPacienteMouseClicked
+        if(evt.getKeyCode() == evt.VK_ENTER){
+            txtNumeroTelefono.requestFocus();
+        }
+    }//GEN-LAST:event_cbxGeneroPacienteKeyPressed
 
     /**
      * @param args the command line arguments

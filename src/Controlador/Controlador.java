@@ -5,7 +5,6 @@
  */
 package Controlador;
 
-import Modelo.GeneroComboBox;
 //import Modelo.Paciente;
 
 /**
@@ -15,9 +14,6 @@ import Modelo.GeneroComboBox;
 public class Controlador {
 
 
-    public static GeneroComboBox getgeneroCombo(Integer i) {
-        return getgeneroCombo(i).values()[i];
-    }
     
 //    public static String NombreVacio = "Vacio";
 //    public Paciente cadenaPaciente;

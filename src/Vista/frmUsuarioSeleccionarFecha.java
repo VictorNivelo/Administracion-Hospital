@@ -4,12 +4,14 @@
  */
 package Vista;
 
+import Modelo.Paciente;
 import static Utilidades.UtilidadesFechas.validarFecha;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,6 +19,8 @@ import javax.swing.JOptionPane;
  * @author Victor
  */
 public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
+    
+    public static LinkedList contenedor=new LinkedList();
 
     /**
      * Creates new form frmAgendarCita
@@ -162,8 +166,7 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
 
     private void btnAgendarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarCitaActionPerformed
         // TODO add your handling code here:
-//        frmPersonalCitasPorAtender abrir = new frmPersonalCitasPorAtender();
-//        abrir.setVisible(false);
+
         try {
             if(txtFechaCita.getText().isEmpty() || cbxHorarioAtencion.getSelectedItem() == null) {
                 JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
@@ -184,6 +187,28 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
                     if (fechaSe.before(fecha)) {
                         JOptionPane.showMessageDialog(null, "La fecha seleccionada ya ha pasado");
                     }else{
+                        String NumeroCedula = Vista.frmUsuarioIngresarDatos.txtNumeroCedula.getText();
+                        String NombrePaciente = Vista.frmUsuarioIngresarDatos.txtNombrePaciente.getText();
+                        String ApellidoPaciente = Vista.frmUsuarioIngresarDatos.txtApellidoPaciente.getText();
+                        String EdadPaciente = Vista.frmUsuarioIngresarDatos.txtEdadPaciente.getText();
+                        String GeneroPaciente = Vista.frmUsuarioIngresarDatos.cbxGeneroPaciente.getSelectedItem().toString();
+                        String TelefonoPaciente = Vista.frmUsuarioIngresarDatos.txtNumeroTelefono.getText();
+                        String MolestiaPaciente = Vista.frmUsuarioIngresarDatos.txaMolestias.getText();
+                        String FechaAtencion = txtFechaCita.getText();
+                        String HoraAtencion = cbxHorarioAtencion.getSelectedItem().toString();
+
+                        Paciente claseauto = new Paciente(NumeroCedula, NombrePaciente, ApellidoPaciente, EdadPaciente, GeneroPaciente, TelefonoPaciente, MolestiaPaciente, FechaAtencion, HoraAtencion);
+                        contenedor.add(claseauto);
+
+                        Vista.frmUsuarioIngresarDatos.txtNumeroCedula.setText("");
+                        Vista.frmUsuarioIngresarDatos.txtNombrePaciente.setText("");
+                        Vista.frmUsuarioIngresarDatos.txtApellidoPaciente.setText("");
+                        Vista.frmUsuarioIngresarDatos.txtEdadPaciente.setText("");
+                        Vista.frmUsuarioIngresarDatos.cbxGeneroPaciente.setSelectedItem("");
+                        Vista.frmUsuarioIngresarDatos.txtNumeroTelefono.setText("");
+                        Vista.frmUsuarioIngresarDatos.txaMolestias.setText("");
+                        txtFechaCita.setText("");
+                        cbxHorarioAtencion.setSelectedItem("");
                         JOptionPane.showMessageDialog(null, "Cita agendada con exito");
                     }
                 }
@@ -193,6 +218,8 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
             }
         } catch (ParseException ex) {
         }
+        
+        
         
     }//GEN-LAST:event_btnAgendarCitaActionPerformed
 
@@ -240,10 +267,7 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frmUsuarioSeleccionarFecha.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

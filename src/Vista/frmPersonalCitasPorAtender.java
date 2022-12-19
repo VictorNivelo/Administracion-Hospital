@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import Modelo.Paciente;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -11,6 +14,8 @@ package Vista;
  */
 public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
 
+    private DefaultTableModel modelo;
+    int contador = 0;
 
     /**
      * Creates new form frmPersonalCitasPorAtender
@@ -18,8 +23,36 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
     public frmPersonalCitasPorAtender() {
         initComponents();
         this.setLocationRelativeTo(null);
+        CargarInterfaz();
+        CargarDatos();
     }
 
+
+     public void CargarInterfaz(){
+        
+        String datos[][]={};
+        String columna[]={"Cedula", "Nombres", "Apellidos", "Edad","Genero","Telefono","Molestia","Fecha", "Hora Atencion"};
+        modelo=new DefaultTableModel(datos,columna);
+        tblCitasSinAtender.setModel(modelo);
+        
+    }
+ public void CargarDatos(){
+       Paciente a;
+       for(int i=0;i<frmUsuarioSeleccionarFecha.contenedor.size();i++){
+           a=(Paciente)frmUsuarioSeleccionarFecha.contenedor.get(i);
+           modelo.insertRow(contador, new Object[]{});
+           modelo.setValueAt(a.getIdentificacion(), contador, 0);
+           modelo.setValueAt(a.getNombres(), contador, 1);
+           modelo.setValueAt(a.getApellidos(), contador, 2);
+           modelo.setValueAt(a.getEdad(), contador, 3);
+           modelo.setValueAt(a.getGenero(), contador, 4);
+           modelo.setValueAt(a.getTelefono(), contador, 5);
+           modelo.setValueAt(a.getMolestia(), contador, 6);
+           modelo.setValueAt(a.getFechaIngreso(), contador, 7);
+           modelo.setValueAt(a.getHoraAtencion(), contador, 8);
+       }
+   }
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -77,7 +110,7 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Cedula", "Nombres", "Apellidos", "Edad", "Genero", "Telefono", "Molestia", "Fecha cita", "Hora cita"
+
             }
         ));
         jScrollPane1.setViewportView(tblCitasSinAtender);
@@ -90,7 +123,7 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 812, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -175,7 +208,7 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
                             .addComponent(txtNumeroTelefono, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtNumeroCedula)
@@ -268,7 +301,7 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,11 +343,11 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -366,6 +399,7 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
         frmPersonalInterfazPrincipal abrir = new frmPersonalInterfazPrincipal();
         abrir.setVisible(true);
         this.setVisible(false);
+//        dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnAsignarMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarMedicamentoActionPerformed

@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 
 public class Paciente {
+
     
     //elemetos rol
     private Integer id;
@@ -23,7 +24,7 @@ public class Paciente {
     private String nombres;
     private String apellidos;
     private String telefono;
-    private GeneroComboBox genero;
+    private String genero;
     private String edad;
     private String molestia;
     private String FechaIngreso;
@@ -31,21 +32,46 @@ public class Paciente {
     
     private Paciente unionPaciente[];
     
-    private ArrayList <Paciente> pacienteU;
-    
-    public Paciente(String identificacionL, String nombresL, String apellidosL, String edadL, GeneroComboBox generoL, String telefonoL, String fechaIngresoL, String horaAtencionL, String molestiasL){
-        this.identificacion = identificacionL;
-        this.nombres = nombresL;
-        this.apellidos = apellidosL;
-        this.edad = edadL;
-        this.genero = generoL;
-        this.telefono = telefonoL;
-        this.FechaIngreso = fechaIngresoL;
-        this.HoraAtencion = horaAtencionL;
-        this.molestia = molestiasL;
+    public Paciente(String identificacion, String nombres,String apellidos,String edad,String genero, String telefono,String molestia, String FechaIngreso, String HoraAtencion) {
         
-        this.pacienteU = new ArrayList(); 
+        this.identificacion = identificacion;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.edad = edad;
+        this.genero = genero;
+        this.telefono = telefono;
+        this.molestia = molestia;
+        this.FechaIngreso = FechaIngreso;
+        this.HoraAtencion = HoraAtencion;
+
     }
+
+    
+//    private ArrayList <Paciente> pacienteU;
+//    
+//    public Paciente(String identificacionL, String nombresL, String apellidosL, String edadL, GeneroComboBox generoL, String telefonoL, String fechaIngresoL, String horaAtencionL, String molestiasL){
+//        this.identificacion = identificacionL;
+//        this.nombres = nombresL;
+//        this.apellidos = apellidosL;
+//        this.edad = edadL;
+//        this.genero = generoL;
+//        this.telefono = telefonoL;
+//        this.FechaIngreso = fechaIngresoL;
+//        this.HoraAtencion = horaAtencionL;
+//        this.molestia = molestiasL;
+//        
+//        this.pacienteU = new ArrayList(); 
+//    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+    
+    
 
     public String getMolestia() {
         return this.molestia;
@@ -127,26 +153,12 @@ public class Paciente {
         this.telefono = telefono;
     }
 
-    public GeneroComboBox getGenero() {
-        return this.genero;
-    }
-
-    public void setGenero(GeneroComboBox genero) {
-        this.genero = genero;
-    }
-
     public Paciente[] getUnionPaciente() {
         return unionPaciente;
     }
 
     public void setUnionPaciente(Paciente[] unionPaciente) {
         this.unionPaciente = unionPaciente;
-    }
-    
-
-    @Override
-    public String toString() {
-        return " identificacion =" + identificacion + ", nombres=" + nombres + ", apellidos=" + apellidos + ", telefono=" + telefono + ", genero=" + genero + ", edad=" + edad + ", molestia=" + molestia + ", FechaIngreso=" + FechaIngreso + ", HoraAtencion=" + HoraAtencion;
     }
  
 }
