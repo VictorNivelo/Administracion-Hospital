@@ -202,8 +202,8 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
                 if(resultado == true) {
                     frmPersonalCitasPorAtender abrir = new frmPersonalCitasPorAtender();
                     abrir.setVisible(false);
-                    if (fechaSeleccionada.before(fecha) ) {
-                        JOptionPane.showMessageDialog(null, "La fecha seleccionada ya ha pasado");
+                    if (fechaSeleccionada.before(fecha)) {
+                        JOptionPane.showMessageDialog(null, "La fecha seleccionada ya ha pasado o no se puede agendar una cita para hoy");
                     }
                     else if (ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, fecha1, 7) == true & ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, CbxHoraAtencion, 8)) {
                         JOptionPane.showMessageDialog(null, "La hora de atencion ya no esta disponible");

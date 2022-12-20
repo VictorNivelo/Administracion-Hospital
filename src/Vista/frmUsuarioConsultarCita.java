@@ -157,6 +157,7 @@ public class frmUsuarioConsultarCita extends javax.swing.JFrame {
 
     private void btnVerificarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarCitaActionPerformed
         // TODO add your handling code here:
+
         String cedula = txtNumeroCedula.getText();
         frmPersonalCitasPorAtender abrir = new frmPersonalCitasPorAtender();
         abrir.setVisible(false);
@@ -166,8 +167,11 @@ public class frmUsuarioConsultarCita extends javax.swing.JFrame {
         else if(cedula.length() < 10) {
             JOptionPane.showMessageDialog(null, "La cedula tiene menos de 10 digitos", "CEDULA MAL ESTABLECIDA", JOptionPane.ERROR_MESSAGE);
         }
+        else if(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender.getRowCount() <= 0){
+            JOptionPane.showMessageDialog(null, "No hay registros de citas","Error",JOptionPane.ERROR_MESSAGE);
+        }
         else if(ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, cedula, 0)== true){
-            JOptionPane.showMessageDialog(null, "Tiene cita agendada para la fecha: ");
+            JOptionPane.showMessageDialog(null, "Cuenta con una cita agendada");
         }else{
             JOptionPane.showMessageDialog(null, "No cuenta con una cita disponible");
         }
