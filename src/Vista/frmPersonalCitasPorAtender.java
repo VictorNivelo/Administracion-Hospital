@@ -4,7 +4,10 @@
  */
 package Vista;
 
+import Modelo.HistorialClinico;
 import Modelo.Paciente;
+import java.util.LinkedList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -13,6 +16,8 @@ import javax.swing.table.DefaultTableModel;
  * @author Victor
  */
 public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
+    
+    public static LinkedList contenedorAtendido=new LinkedList();
 
     private DefaultTableModel modelo;
     int contador = 0;
@@ -28,30 +33,32 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
     }
 
 
-     public void CargarInterfaz(){
-        
-        String datos[][]={};
-        String columna[]={"Cedula", "Nombres", "Apellidos", "Edad","Genero","Telefono","Molestia","Fecha", "Hora Atencion"};
-        modelo=new DefaultTableModel(datos,columna);
+     public void CargarInterfaz() {
+
+        String datos[][] = {};
+        String columna[] = {"Cedula", "Nombres", "Apellidos", "Edad", "Genero", "Telefono", "Molestia", "Fecha", "Hora Atencion"};
+        modelo = new DefaultTableModel(datos, columna);
         tblCitasSinAtender.setModel(modelo);
-        
+
     }
- public void CargarDatos(){
-       Paciente a;
-       for(int i=0;i<frmUsuarioSeleccionarFecha.contenedor.size();i++){
-           a=(Paciente)frmUsuarioSeleccionarFecha.contenedor.get(i);
-           modelo.insertRow(contador, new Object[]{});
-           modelo.setValueAt(a.getIdentificacion(), contador, 0);
-           modelo.setValueAt(a.getNombres(), contador, 1);
-           modelo.setValueAt(a.getApellidos(), contador, 2);
-           modelo.setValueAt(a.getEdad(), contador, 3);
-           modelo.setValueAt(a.getGenero(), contador, 4);
-           modelo.setValueAt(a.getTelefono(), contador, 5);
-           modelo.setValueAt(a.getMolestia(), contador, 6);
-           modelo.setValueAt(a.getFechaIngreso(), contador, 7);
-           modelo.setValueAt(a.getHoraAtencion(), contador, 8);
-       }
-   }
+
+    public void CargarDatos() {
+        Paciente a;
+        for (int i = 0; i < frmUsuarioSeleccionarFecha.contenedor.size(); i++) {
+            a = (Paciente) frmUsuarioSeleccionarFecha.contenedor.get(i);
+            modelo.insertRow(contador, new Object[]{});
+            modelo.setValueAt(a.getIdentificacion(), contador, 0);
+            modelo.setValueAt(a.getNombres(), contador, 1);
+            modelo.setValueAt(a.getApellidos(), contador, 2);
+            modelo.setValueAt(a.getEdad(), contador, 3);
+            modelo.setValueAt(a.getGenero(), contador, 4);
+            modelo.setValueAt(a.getTelefono(), contador, 5);
+            modelo.setValueAt(a.getMolestia(), contador, 6);
+            modelo.setValueAt(a.getFechaIngreso(), contador, 7);
+            modelo.setValueAt(a.getHoraAtencion(), contador, 8);
+        }
+       
+    }
  
     /**
      * This method is called from within the constructor to initialize the form.
@@ -409,6 +416,39 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
 
     private void btnAsignarMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarMedicamentoActionPerformed
         // TODO add your handling code here:
+        
+        
+        if(txtAsignarMedicamento.getText().isEmpty() || txtDosis.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "No se ha asignado un medicamento");
+        }else{
+            
+            frmPersonalHistorialPacientes abrir = new frmPersonalHistorialPacientes();
+            abrir.setVisible(false);
+
+            String NumeroCedula = txtNumeroCedula.getText();
+            String NombrePaciente = txtNombre.getText();
+            String ApellidoPaciente = txtApellidoPaciente.getText();
+            String EdadPaciente = txtEdad.getText();
+            String GeneroPaciente = txtGenero.getText();
+            String TelefonoPaciente = txtNumeroTelefono.getText();
+            String MolestiaPaciente = txaMolestias.getText();
+            String FechaAtencion = txtFechaIngreso.getText();
+            String HoraAtencion = txtHoraAtencion.getText();
+            String Medicamento = txtAsignarMedicamento.getText();
+            String Dosis =txtDosis.getText();
+            
+            HistorialClinico claseauto = new HistorialClinico(NumeroCedula, NombrePaciente, ApellidoPaciente, EdadPaciente, GeneroPaciente, TelefonoPaciente, MolestiaPaciente, FechaAtencion, HoraAtencion, Medicamento, Dosis);
+            contenedorAtendido.add(claseauto);
+            
+            if (tblCitasSinAtender.getSelectedRow() != -1) {
+                modelo.removeRow(tblCitasSinAtender.getSelectedRow());
+            } else {
+                JOptionPane.showMessageDialog(null, "No se ha seleccionado ningun paciente");
+            }
+            
+            JOptionPane.showMessageDialog(null, "Paciente atendido");
+            
+        }
         
     }//GEN-LAST:event_btnAsignarMedicamentoActionPerformed
 

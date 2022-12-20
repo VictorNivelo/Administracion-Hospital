@@ -21,7 +21,7 @@ import javax.swing.JTable;
  */
 public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
     
-    public static LinkedList contenedor=new LinkedList();
+    public static LinkedList contenedor = new LinkedList();
 
     /**
      * Creates new form frmAgendarCita
@@ -196,7 +196,7 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
                 Date fecha = calendario.getTime();
                 String Fe = txtFechaCita.getText();
                 Date fechaSeleccionada = formatoDeFecha.parse(Fe);
-                Date fechaLimite = formatoDeFecha.parse("30/12/2030");
+                Date fechaLimite = formatoDeFecha.parse("30/12/2040");
                 
                 
                 if(resultado == true) {

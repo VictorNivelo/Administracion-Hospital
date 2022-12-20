@@ -4,11 +4,17 @@
  */
 package Vista;
 
+import Modelo.HistorialClinico;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Victor
  */
 public class frmPersonalHistorialPacientes extends javax.swing.JFrame {
+    
+    private DefaultTableModel modeloAtendido;
+    int contadorAtendido = 0;
 
     /**
      * Creates new form frmPersonalHistorialPacientes
@@ -16,6 +22,35 @@ public class frmPersonalHistorialPacientes extends javax.swing.JFrame {
     public frmPersonalHistorialPacientes() {
         initComponents();
         this.setLocationRelativeTo(null);
+        CargarInterfazAtendidos();
+        CargarDatosAtendidos();
+    }
+    
+    public void CargarInterfazAtendidos() {
+
+        String datos[][] = {};
+        String columna[] = {"Cedula", "Nombres", "Apellidos", "Edad", "Genero", "Telefono", "Molestia", "Fecha", "Hora Atencion", "Medicamento","Dosis"};
+        modeloAtendido = new DefaultTableModel(datos, columna);
+        tblRegistroPacientes.setModel(modeloAtendido);
+    }
+
+    public void CargarDatosAtendidos() {
+        HistorialClinico a;
+        for (int i = 0; i < frmPersonalCitasPorAtender.contenedorAtendido.size(); i++) {
+            a = (HistorialClinico) frmPersonalCitasPorAtender.contenedorAtendido.get(i);
+            modeloAtendido.insertRow(contadorAtendido, new Object[]{});
+            modeloAtendido.setValueAt(a.getIdentificacionA(), contadorAtendido, 0);
+            modeloAtendido.setValueAt(a.getNombresA(), contadorAtendido, 1);
+            modeloAtendido.setValueAt(a.getApellidosA(), contadorAtendido, 2);
+            modeloAtendido.setValueAt(a.getEdadA(), contadorAtendido, 3);
+            modeloAtendido.setValueAt(a.getGeneroA(), contadorAtendido, 4);
+            modeloAtendido.setValueAt(a.getTelefonoA(), contadorAtendido, 5);
+            modeloAtendido.setValueAt(a.getMolestiaA(), contadorAtendido, 6);
+            modeloAtendido.setValueAt(a.getFechaIngresoA(), contadorAtendido, 7);
+            modeloAtendido.setValueAt(a.getHoraAtencionA(), contadorAtendido, 8);
+            modeloAtendido.setValueAt(a.getMedicamentoA(), contadorAtendido, 9);
+            modeloAtendido.setValueAt(a.getDosisA(), contadorAtendido, 10);
+        }
     }
 
     /**
@@ -30,7 +65,7 @@ public class frmPersonalHistorialPacientes extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbtRegistroPacientes = new javax.swing.JTable();
+        tblRegistroPacientes = new javax.swing.JTable();
         btnRegresar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -43,32 +78,32 @@ public class frmPersonalHistorialPacientes extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Pacientes atendidos");
 
-        tbtRegistroPacientes.setModel(new javax.swing.table.DefaultTableModel(
+        tblRegistroPacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Cedula", "Nombres", "Apellidos", "Edad", "Genero", "Telefono", "Molestia", "Fecha cita", "Hora cita", "Medicamento "
+
             }
         ));
-        jScrollPane1.setViewportView(tbtRegistroPacientes);
+        jScrollPane1.setViewportView(tblRegistroPacientes);
 
         btnRegresar.setText("REGRESAR");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -173,6 +208,6 @@ public class frmPersonalHistorialPacientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JTable tbtRegistroPacientes;
+    public static javax.swing.JTable tblRegistroPacientes;
     // End of variables declaration//GEN-END:variables
 }

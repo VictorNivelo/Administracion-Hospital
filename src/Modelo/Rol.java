@@ -29,5 +29,7 @@ public class Rol {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    
+    
 
 }

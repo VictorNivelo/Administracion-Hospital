@@ -5,8 +5,6 @@
  */
 package Modelo;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Victor
@@ -45,6 +43,7 @@ public class Paciente {
         this.HoraAtencion = HoraAtencion;
 
     }
+    
 
     
 //    private ArrayList <Paciente> pacienteU;
