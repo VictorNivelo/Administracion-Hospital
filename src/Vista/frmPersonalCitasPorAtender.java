@@ -33,13 +33,11 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
     }
 
 
-     public void CargarInterfaz() {
-
+    public void CargarInterfaz() {
         String datos[][] = {};
         String columna[] = {"Cedula", "Nombres", "Apellidos", "Edad", "Genero", "Telefono", "Molestia", "Fecha", "Hora Atencion"};
         modelo = new DefaultTableModel(datos, columna);
         tblCitasSinAtender.setModel(modelo);
-
     }
 
     public void CargarDatos() {
@@ -57,7 +55,6 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
             modelo.setValueAt(a.getFechaIngreso(), contador, 7);
             modelo.setValueAt(a.getHoraAtencion(), contador, 8);
         }
-       
     }
  
     /**
@@ -368,8 +365,8 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -418,10 +415,9 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         
-        if(txtAsignarMedicamento.getText().isEmpty() || txtDosis.getText().isEmpty()){
+        if(txtAsignarMedicamento.getText().isEmpty() || txtDosis.getText().isEmpty()||txtNumeroCedula.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "No se ha asignado un medicamento");
         }else{
-            
             frmPersonalHistorialPacientes abrir = new frmPersonalHistorialPacientes();
             abrir.setVisible(false);
 
@@ -442,12 +438,10 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
             
             if (tblCitasSinAtender.getSelectedRow() != -1) {
                 modelo.removeRow(tblCitasSinAtender.getSelectedRow());
+                JOptionPane.showMessageDialog(null, "Paciente atendido");
             } else {
                 JOptionPane.showMessageDialog(null, "No se ha seleccionado ningun paciente");
             }
-            
-            JOptionPane.showMessageDialog(null, "Paciente atendido");
-            
         }
         
     }//GEN-LAST:event_btnAsignarMedicamentoActionPerformed

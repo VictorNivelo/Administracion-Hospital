@@ -20,19 +20,18 @@ import javax.swing.JTable;
  * @author Victor
  */
 public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
-    
+
     public static LinkedList contenedor = new LinkedList();
 
     /**
      * Creates new form frmAgendarCita
      */
-    
     public frmUsuarioSeleccionarFecha() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+
     }
-    
+
     public boolean ExisteEnTabla(JTable tabla, String cedula, int col) {
         boolean Existe = false;
         for (int i = 0; i < tabla.getRowCount(); i++) {
@@ -42,7 +41,7 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
         }
         return Existe;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -180,41 +179,35 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         try {
-            if(txtFechaCita.getText().isEmpty() || cbxHorarioAtencion.getSelectedItem() == null) {
+            if (txtFechaCita.getText().isEmpty() || cbxHorarioAtencion.getSelectedItem() == null) {
                 JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-            else{
+            } else {
                 String fecha1;
                 boolean resultado = true;
                 fecha1 = txtFechaCita.getText();
                 resultado = validarFecha(fecha1);
                 String CbxHoraAtencion = cbxHorarioAtencion.getSelectedItem().toString();
                 String cedula = Vista.frmUsuarioIngresarDatos.txtNumeroCedula.getText();
-                
+
                 SimpleDateFormat formatoDeFecha = new SimpleDateFormat("dd/MM/yyyy");
                 Calendar calendario = GregorianCalendar.getInstance();
                 Date fecha = calendario.getTime();
                 String Fe = txtFechaCita.getText();
                 Date fechaSeleccionada = formatoDeFecha.parse(Fe);
                 Date fechaLimite = formatoDeFecha.parse("30/12/2040");
-                
-                
-                if(resultado == true) {
+
+                if (resultado == true) {
                     frmPersonalCitasPorAtender abrir = new frmPersonalCitasPorAtender();
                     abrir.setVisible(false);
                     if (fechaSeleccionada.before(fecha)) {
                         JOptionPane.showMessageDialog(null, "La fecha seleccionada ya ha pasado o no se puede agendar una cita para hoy");
-                    }
-                    else if (ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, fecha1, 7) == true & ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, CbxHoraAtencion, 8)) {
+                    } else if (ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, fecha1, 7) == true & ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, CbxHoraAtencion, 8)) {
                         JOptionPane.showMessageDialog(null, "La hora de atencion ya no esta disponible");
-                    }
-                    else if (ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, cedula, 0) == true) {
-                        JOptionPane.showMessageDialog(null, "El usuario con numero de cedula "+cedula+ " ya tiene una cita agendada ");
-                    }
-                    else if(fechaSeleccionada.after(fechaLimite)){
+                    } else if (ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, cedula, 0) == true) {
+                        JOptionPane.showMessageDialog(null, "El usuario con numero de cedula " + cedula + " ya tiene una cita agendada ");
+                    } else if (fechaSeleccionada.after(fechaLimite)) {
                         JOptionPane.showMessageDialog(null, "La fecha seleccionada es muy lejana");
-                    }
-                    else{
+                    } else {
                         String NumeroCedula = Vista.frmUsuarioIngresarDatos.txtNumeroCedula.getText();
                         String NombrePaciente = Vista.frmUsuarioIngresarDatos.txtNombrePaciente.getText();
                         String ApellidoPaciente = Vista.frmUsuarioIngresarDatos.txtApellidoPaciente.getText();
@@ -228,30 +221,18 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
                         Paciente claseauto = new Paciente(NumeroCedula, NombrePaciente, ApellidoPaciente, EdadPaciente, GeneroPaciente, TelefonoPaciente, MolestiaPaciente, FechaAtencion, HoraAtencion);
                         contenedor.add(claseauto);
 
-//                        Vista.frmUsuarioIngresarDatos.txtNumeroCedula.setText("");
-//                        Vista.frmUsuarioIngresarDatos.txtNombrePaciente.setText("");
-//                        Vista.frmUsuarioIngresarDatos.txtApellidoPaciente.setText("");
-//                        Vista.frmUsuarioIngresarDatos.txtEdadPaciente.setText("");
-//                        Vista.frmUsuarioIngresarDatos.cbxGeneroPaciente.setSelectedItem("");
-//                        Vista.frmUsuarioIngresarDatos.txtNumeroTelefono.setText("");
-//                        Vista.frmUsuarioIngresarDatos.txaMolestias.setText("");
-//                        txtFechaCita.setText("");
-//                        cbxHorarioAtencion.setSelectedItem("");
                         JOptionPane.showMessageDialog(null, "Cita agendada con exito");
                         
-//                        dispose();
                     }
-                    
-                }
-                else{
+
+                } else {
                     JOptionPane.showMessageDialog(null, "El formato de la fecha esta mal, Por favor revisar");
-                }  
+                }
             }
         } catch (ParseException ex) {
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_btnAgendarCitaActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
@@ -264,11 +245,11 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
         int key = evt.getKeyChar();
         boolean slash = key == 47;
         Character c = evt.getKeyChar();
-        
-        if(!(Character.isDigit(c) || slash)){
+
+        if (!(Character.isDigit(c) || slash)) {
             evt.consume();
         }
-        if(txtFechaCita.getText().length()>=10){
+        if (txtFechaCita.getText().length() >= 10) {
             evt.consume();
         }
     }//GEN-LAST:event_txtFechaCitaKeyTyped

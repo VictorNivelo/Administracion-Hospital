@@ -5,9 +5,11 @@
         <group>
             <file>file:/C:/Users/Victor/Documents/NetBeansProjects/Administracion-Hospital/src/Controlador/Controlador.java</file>
             <file>file:/C:/Users/Victor/Documents/NetBeansProjects/Administracion-Hospital/src/Vista/frmPersonalHistorialPacientes.java</file>
+            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/Administracion-Hospital/src/Vista/frmUsuarioConsultarCita.java</file>
             <file>file:/C:/Users/Victor/Documents/NetBeansProjects/Administracion-Hospital/src/Vista/frmPersonalCitasPorAtender.java</file>
+            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/Administracion-Hospital/src/Vista/frmPersonalInventarioMedico.java</file>
+            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/Administracion-Hospital/src/Vista/frmUsuarioIngresarDatos.java</file>
             <file>file:/C:/Users/Victor/Documents/NetBeansProjects/Administracion-Hospital/src/Vista/frmUsuarioSeleccionarFecha.java</file>
-            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/Administracion-Hospital/src/Vista/frmPersonalInterfazPrincipal.java</file>
         </group>
     </open-files>
 </project-private>
