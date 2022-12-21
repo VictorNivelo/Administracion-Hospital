@@ -172,11 +172,10 @@ public class frmUsuarioConsultarCita extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "La cedula tiene menos de 10 digitos", "CEDULA MAL ESTABLECIDA", JOptionPane.ERROR_MESSAGE);
         }
         else if(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender.getRowCount() <= 0){
-            JOptionPane.showMessageDialog(null, "No hay registros de citas","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No hay registros de citas, primero tiene que agendar una cita","Error",JOptionPane.ERROR_MESSAGE);
         }
         else if(ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, cedula, 0)== true){
             
-
         }else{
             JOptionPane.showMessageDialog(null, "No cuenta con una cita disponible");
         }
