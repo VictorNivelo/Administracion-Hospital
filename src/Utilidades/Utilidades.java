@@ -13,8 +13,8 @@ import javax.swing.JOptionPane;
  *
  * @author Victor
  */
-public class Utilidades extends Vista.frmUsuarioIngresarDatos{
-    
+public class Utilidades extends Vista.frmUsuarioIngresarDatos {
+
 //    //obtener el valor de la clase enum GeneroComboBox
 //    public static JComboBox cargarComboGenero(JComboBox cbx){
 //        cbx.removeAllItems();
@@ -27,17 +27,16 @@ public class Utilidades extends Vista.frmUsuarioIngresarDatos{
 //    public static GeneroComboBox getComboGenero(JComboBox  cbx){
 //        return (GeneroComboBox)cbx.getSelectedItem();
 //    }
-    
-    public static String Cedula(){
+    public static String Cedula() {
         String NumeroCedula = txtNumeroCedula.getText();
-        if(NumeroCedula.length()==10){
-            
-        }else{
+        if (NumeroCedula.length() == 10) {
+
+        } else {
             JOptionPane.showMessageDialog(null, "El numero de cedula esta mal establecido", "ERROR", JOptionPane.INFORMATION_MESSAGE);
         }
         return NumeroCedula;
     }
-    
+
     public static <T> boolean contains(final T[] array, final T v) {
         for (final T e : array) {
             if (e == v || v != null && v.equals(e)) {
@@ -47,7 +46,7 @@ public class Utilidades extends Vista.frmUsuarioIngresarDatos{
 
         return false;
     }
-    
+
     public static void cargarCombosFecha(JComboBox dia, JComboBox mes, JComboBox anio) {
         dia.removeAllItems();
         mes.removeAllItems();
@@ -69,14 +68,25 @@ public class Utilidades extends Vista.frmUsuarioIngresarDatos{
             anio.addItem(i);
         }
     }
-    
+
     public static JComboBox cargarComboRoles(JComboBox cbx, Rol roles[]) {
         cbx.removeAllItems();
-        
+
         for (Rol rol : roles) {
             cbx.addItem(rol.getNombre());
         }
-        
+
         return cbx;
+    }
+
+    public static int ultimoIndiceOcupado(Object array[]) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("i -> " + i);
+            if (array[i] == null) {
+                return i;
+            }
+        }
+
+        return array.length;
     }
 }
