@@ -8,7 +8,6 @@ package Vista;
 import Controlador.ctrlCuenta;
 import javax.swing.JOptionPane;
 
-
 /**
  *
  * @author Victor
@@ -16,6 +15,7 @@ import javax.swing.JOptionPane;
 public class frmPersonalLogin extends javax.swing.JFrame {
 
     ctrlCuenta controlador = new ctrlCuenta();
+
     /**
      * Creates new form Login
      */
@@ -23,7 +23,7 @@ public class frmPersonalLogin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,7 +43,6 @@ public class frmPersonalLogin extends javax.swing.JFrame {
         btnIngresarLogin = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INGRESO A SISTEMA");
@@ -92,12 +91,6 @@ public class frmPersonalLogin extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 2, 11)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("*Nesesario un @ y un .com*");
-        jLabel6.setToolTipText("*Nesesario un @ y un .com*");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -117,7 +110,6 @@ public class frmPersonalLogin extends javax.swing.JFrame {
                                     .addComponent(txtContraseñaIngresoUsuario)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtNombreIngresoUsuario)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
@@ -142,9 +134,7 @@ public class frmPersonalLogin extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
                         .addComponent(txtNombreIngresoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(29, 29, 29)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtContraseñaIngresoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,23 +168,43 @@ public class frmPersonalLogin extends javax.swing.JFrame {
 
     private void btnIngresarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarLoginActionPerformed
         // TODO add your handling code here:
+        String usuario = txtNombreIngresoUsuario.getText();
+        String clave = txtContraseñaIngresoUsuario.getText();
 
-        if(txtNombreIngresoUsuario.getText().isEmpty() || txtContraseñaIngresoUsuario.getText().isEmpty()) {
+        if (usuario.isEmpty() || clave.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos", "CREDENCIALES VACIAS", JOptionPane.ERROR_MESSAGE);
-        }else {
-            if(txtNombreIngresoUsuario.getText().contains("@") & txtNombreIngresoUsuario.getText().contains(".com")){
-                frmPersonalInterfazPrincipal abrir = new frmPersonalInterfazPrincipal();
-                abrir.setVisible(true);
-                this.setVisible(false);
-            }else{
-                JOptionPane.showMessageDialog(null, "El correo no contiene un @ y un .com","INGRESO DE CREDENCIALES MAL ESTABLECIDAS",JOptionPane.ERROR_MESSAGE);
+        } else {
+            // si se han colocado las credenciales de ingreso, intento el login
+            try {
+                boolean loginExitoso = controlador.login(usuario, clave);
+                System.out.println(loginExitoso + " usuario: " + usuario + " clave: " + clave);
+                if (loginExitoso) {
+                    frmPersonalInterfazPrincipal abrir = new frmPersonalInterfazPrincipal();
+                    abrir.setVisible(true);
+                    this.setVisible(false);
+                } else {
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Su usuario o contraseña son erroneos",
+                            "Credenciales incorrectas",
+                            JOptionPane.ERROR_MESSAGE
+                    );
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(
+                        null,
+                        e.getMessage(),
+                        "Ha ocurrido un error",
+                        JOptionPane.ERROR_MESSAGE
+                );
+                System.out.println(e);
             }
         }
     }//GEN-LAST:event_btnIngresarLoginActionPerformed
 
     private void txtNombreIngresoUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreIngresoUsuarioKeyPressed
         // TODO add your handling code here:
-        if(evt.getKeyCode() == evt.VK_ENTER){
+        if (evt.getKeyCode() == evt.VK_ENTER) {
             txtContraseñaIngresoUsuario.requestFocus();
         }
     }//GEN-LAST:event_txtNombreIngresoUsuarioKeyPressed
@@ -245,7 +255,6 @@ public class frmPersonalLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField txtContraseñaIngresoUsuario;
     private javax.swing.JTextField txtNombreIngresoUsuario;

@@ -54,7 +54,9 @@ public class ctrlCuenta {
     }
 
     public boolean login(String usuario, String clave) {
-        for (int i = 0; i <= ocupados; i++) {
+        cargar();
+        System.out.println("Ocupados: " + ocupados);
+        for (int i = 0; i < ocupados; i++) {
             Cuenta cuenta = cuentas[i];
             if (cuenta.getUsuario().equals(usuario)) {
                 return cuenta.login(usuario, clave);
