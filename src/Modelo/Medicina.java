@@ -9,9 +9,11 @@ package Modelo;
  * @author Victor
  */
 public class Medicina {
+
     private String id;
+    private String nombre;
     private String marca;
-    private String stock;
+    private Integer stock;
     private String fechaCaducidad;
 
     public String getId() {
@@ -22,6 +24,14 @@ public class Medicina {
         this.id = id;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getMarca() {
         return marca;
     }
@@ -30,11 +40,11 @@ public class Medicina {
         this.marca = marca;
     }
 
-    public String getStock() {
+    public Integer getStock() {
         return stock;
     }
 
-    public void setStock(String stock) {
+    public void setStock(Integer stock) {
         this.stock = stock;
     }
 
@@ -45,6 +55,16 @@ public class Medicina {
     public void setFechaCaducidad(String fechaCaducidad) {
         this.fechaCaducidad = fechaCaducidad;
     }
-    
-    
+
+    public boolean entregarMedicina(Integer cantidad) {
+        if (this.stock == null || this.stock < cantidad) {
+            throw new Error("La cantidad de medicina no es suficiente");
+        }
+
+        // Si entrego medicina, le quito la cantidad de unidades que necesite el paciente
+        this.stock -= cantidad;
+
+        return true;
+    }
+
 }
