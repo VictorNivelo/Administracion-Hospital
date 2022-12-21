@@ -10,14 +10,19 @@ package Modelo;
  */
 public class Medico extends Persona {
 
-    private String Especidalidad;
+    private Especialidad especidalidad;
 
-    public String getEspecidalidad() {
-        return Especidalidad;
+    public Especialidad getEspecidalidad() {
+        return especidalidad;
     }
 
-    public void setEspecidalidad(String Especidalidad) {
-        this.Especidalidad = Especidalidad;
+    public void setEspecidalidad(Especialidad especidalidad) {
+        this.especidalidad = especidalidad;
+    }
+
+    @Override
+    public String toString() {
+        return this.especidalidad == null ? this.especidalidad.getNombre() : "No definido";
     }
 
 }
