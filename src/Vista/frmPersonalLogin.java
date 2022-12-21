@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.ctrlCuenta;
 import javax.swing.JOptionPane;
 
 
@@ -14,6 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class frmPersonalLogin extends javax.swing.JFrame {
 
+    ctrlCuenta controlador = new ctrlCuenta();
     /**
      * Creates new form Login
      */

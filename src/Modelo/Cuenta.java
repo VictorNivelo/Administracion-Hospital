@@ -10,11 +10,19 @@ package Modelo;
  * @author Victor
  */
 public class Cuenta {
-    
+
     private Integer id;
     private String usuario;
     private String clave;
-    private Paciente persona;
+    private Persona persona;
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
 
     public Integer getId() {
         return id;
@@ -40,12 +48,7 @@ public class Cuenta {
         this.clave = clave;
     }
 
-    public Paciente getPersona() {
-        return persona;
+    public boolean login(String usuario, String clave) {
+        return this.usuario != null && usuario == this.usuario && clave != null && clave == this.clave;
     }
-
-    public void setPersona(Paciente persona) {
-        this.persona = persona;
-    }
-       
 }
