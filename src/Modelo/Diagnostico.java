@@ -9,16 +9,16 @@ package Modelo;
  * @author Victor
  */
 public class Diagnostico {
-    private String Enfermedad;
+    private Enfermedad enfermedad;
     private String receta;
-    private String estado;
+    private String observaciones;
 
-    public String getEnfermedad() {
-        return Enfermedad;
+    public Enfermedad getEnfermedad() {
+        return enfermedad;
     }
 
-    public void setEnfermedad(String Enfermedad) {
-        this.Enfermedad = Enfermedad;
+    public void setEnfermedad(Enfermedad Enfermedad) {
+        this.enfermedad = Enfermedad;
     }
 
     public String getReceta() {
@@ -29,12 +29,12 @@ public class Diagnostico {
         this.receta = receta;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getObservaciones() {
+        return observaciones;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
     }
     
     
