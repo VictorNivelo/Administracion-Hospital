@@ -180,7 +180,7 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
 
         try {
             if (txtFechaCita.getText().isEmpty() || cbxHorarioAtencion.getSelectedItem() == null) {
-                JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos", "VALORES VACIOS", JOptionPane.WARNING_MESSAGE);
             } else {
                 String fecha1;
                 boolean resultado = true;
@@ -191,7 +191,7 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
 
                 SimpleDateFormat formatoDeFecha = new SimpleDateFormat("dd/MM/yyyy");
                 Calendar calendario = GregorianCalendar.getInstance();
-                Date fecha = calendario.getTime();
+                Date fechaHoy = calendario.getTime();
                 String Fe = txtFechaCita.getText();
                 Date fechaSeleccionada = formatoDeFecha.parse(Fe);
                 Date fechaLimite = formatoDeFecha.parse("30/12/2040");
@@ -199,14 +199,15 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
                 if (resultado == true) {
                     frmPersonalCitasPorAtender abrir = new frmPersonalCitasPorAtender();
                     abrir.setVisible(false);
-                    if (fechaSeleccionada.before(fecha)) {
-                        JOptionPane.showMessageDialog(null, "La fecha seleccionada ya ha pasado o no se puede agendar una cita para hoy");
+
+                    if (fechaSeleccionada.before(fechaHoy)) {
+                        JOptionPane.showMessageDialog(null, "La fecha seleccionada ya ha pasado", "FECHA PASADO", JOptionPane.INFORMATION_MESSAGE);
                     } else if (ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, fecha1, 7) == true & ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, CbxHoraAtencion, 8)) {
-                        JOptionPane.showMessageDialog(null, "La hora de atencion ya no esta disponible");
+                        JOptionPane.showMessageDialog(null, "La hora de atencion ya no esta disponible", "NO DISPONIBLE", JOptionPane.INFORMATION_MESSAGE);
                     } else if (ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, cedula, 0) == true) {
-                        JOptionPane.showMessageDialog(null, "El usuario con numero de cedula " + cedula + " ya tiene una cita agendada ");
+                        JOptionPane.showMessageDialog(null, "El usuario con numero de cedula " + cedula + " ya tiene una cita agendada ", "YA CUENTA CON CITA", JOptionPane.INFORMATION_MESSAGE);
                     } else if (fechaSeleccionada.after(fechaLimite)) {
-                        JOptionPane.showMessageDialog(null, "La fecha seleccionada es muy lejana");
+                        JOptionPane.showMessageDialog(null, "La fecha seleccionada es muy lejana", "FECHA DEMASIADO LEJANA", JOptionPane.INFORMATION_MESSAGE);
                     } else {
                         String NumeroCedula = Vista.frmUsuarioIngresarDatos.txtNumeroCedula.getText();
                         String NombrePaciente = Vista.frmUsuarioIngresarDatos.txtNombrePaciente.getText();
@@ -221,18 +222,14 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
                         Paciente claseauto = new Paciente(NumeroCedula, NombrePaciente, ApellidoPaciente, EdadPaciente, GeneroPaciente, TelefonoPaciente, MolestiaPaciente, FechaAtencion, HoraAtencion);
                         contenedor.add(claseauto);
 
-                        JOptionPane.showMessageDialog(null, "Cita agendada con exito");
-                        
+                        JOptionPane.showMessageDialog(null, "CITA AGENDADA CON EXITO");
                     }
-
                 } else {
-                    JOptionPane.showMessageDialog(null, "El formato de la fecha esta mal, Por favor revisar");
+                    JOptionPane.showMessageDialog(null, "El formato de la fecha esta mal, tiene que ser dia/mes/año, con limites de dias 30 o 31 y mes maximo 12 ,Por favor revisar", "FORMATO DE FECHA MAL ESTABLECIDO", JOptionPane.WARNING_MESSAGE);
                 }
             }
         } catch (ParseException ex) {
         }
-
-
     }//GEN-LAST:event_btnAgendarCitaActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
