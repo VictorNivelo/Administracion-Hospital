@@ -8,10 +8,10 @@ package Modelo;
  *
  * @author Victor
  */
-public class Enfermera {
+public class Enfermera extends Persona {
+
     private String Tipo;
     private String codigo;
-    private String rol;
 
     public String getTipo() {
         return Tipo;
@@ -29,12 +29,4 @@ public class Enfermera {
         this.codigo = codigo;
     }
 
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
-    
 }

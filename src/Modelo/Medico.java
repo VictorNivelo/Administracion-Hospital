@@ -8,10 +8,9 @@ package Modelo;
  *
  * @author Victor
  */
-public class Medico {
+public class Medico extends Persona {
+
     private String Especidalidad;
-    private String rol;
-    private String cuenta;
 
     public String getEspecidalidad() {
         return Especidalidad;
@@ -21,22 +20,4 @@ public class Medico {
         this.Especidalidad = Especidalidad;
     }
 
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
-
-    public String getCuenta() {
-        return cuenta;
-    }
-
-    public void setCuenta(String cuenta) {
-        this.cuenta = cuenta;
-    }
-    
-    
-    
 }
