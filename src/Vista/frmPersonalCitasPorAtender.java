@@ -416,7 +416,7 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
         
         
         if(txtAsignarMedicamento.getText().isEmpty() || txtDosis.getText().isEmpty()||txtNumeroCedula.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "No se ha asignado un medicamento");
+            JOptionPane.showMessageDialog(null, "No se ha asignado un medicamento","FALTA ASIGNAR MEDICAMENTO",JOptionPane.WARNING_MESSAGE);
         }else{
             frmPersonalHistorialPacientes abrir = new frmPersonalHistorialPacientes();
             abrir.setVisible(false);
@@ -438,9 +438,9 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
             
             if (tblCitasSinAtender.getSelectedRow() != -1) {
                 modelo.removeRow(tblCitasSinAtender.getSelectedRow());
-                JOptionPane.showMessageDialog(null, "Paciente atendido");
+                JOptionPane.showMessageDialog(null, "PACIENTE ATENDIDO EXITOSAMENTE");
             } else {
-                JOptionPane.showMessageDialog(null, "No se ha seleccionado ningun paciente");
+                JOptionPane.showMessageDialog(null, "No se ha seleccionado ningun paciente","PACIENTE NO SELECCIONADO",JOptionPane.INFORMATION_MESSAGE);
             }
         }
         

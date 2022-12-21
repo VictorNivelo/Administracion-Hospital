@@ -354,10 +354,10 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
         String telefono = txtNumeroTelefono.getText();
         
         if(txaMolestias.getText().isEmpty() || txtNombrePaciente.getText().isEmpty() || txtApellidoPaciente.getText().isEmpty() || txtEdadPaciente.getText().isEmpty() || cbxGeneroPaciente.getSelectedItem() == null){
-            JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos","INGRESE TODOS LOS DATOS",JOptionPane.WARNING_MESSAGE);
         }
         else if(telefono.length()<10){
-            JOptionPane.showMessageDialog(null, "La numero de telefono tiene menos de 10 digitos","CEDULA MAL ESTABLECIDA",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La numero de telefono tiene menos de 10 digitos","TELEFONO MAL ESTABLECIDO",JOptionPane.ERROR_MESSAGE);
         }
         else if(cedula.length()<10){
             JOptionPane.showMessageDialog(null, "La cedula tiene menos de 10 digitos","CEDULA MAL ESTABLECIDA",JOptionPane.ERROR_MESSAGE);

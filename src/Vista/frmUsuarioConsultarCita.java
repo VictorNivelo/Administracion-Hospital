@@ -29,7 +29,7 @@ public class frmUsuarioConsultarCita extends javax.swing.JFrame {
                 
                 String FechaCita = (String) frmPersonalCitasPorAtender.tblCitasSinAtender.getValueAt(i, 7);
                 String HoraCita =(String) frmPersonalCitasPorAtender.tblCitasSinAtender.getValueAt(i, 8);
-                JOptionPane.showMessageDialog(null, "Cuenta con una cita agendada para el dia "+FechaCita+" en el horario de "+HoraCita);
+                JOptionPane.showMessageDialog(null, "Cuenta con una cita agendada para el dia "+FechaCita+" en el horario de "+HoraCita,"CUENTA CON CITA",JOptionPane.INFORMATION_MESSAGE);
             }
         }
         return Existe;
@@ -166,18 +166,18 @@ public class frmUsuarioConsultarCita extends javax.swing.JFrame {
         frmPersonalCitasPorAtender abrir = new frmPersonalCitasPorAtender();
         abrir.setVisible(false);
         if(txtNumeroCedula.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Ingrese el numero de cedula","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingrese el numero de cedula","NUMERO DE CEDULA VACIO",JOptionPane.ERROR_MESSAGE);
         }
         else if(cedula.length() < 10) {
             JOptionPane.showMessageDialog(null, "La cedula tiene menos de 10 digitos", "CEDULA MAL ESTABLECIDA", JOptionPane.ERROR_MESSAGE);
         }
         else if(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender.getRowCount() <= 0){
-            JOptionPane.showMessageDialog(null, "No hay registros de citas, primero tiene que agendar una cita","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No hay registros de citas, primero tiene que agendar una cita","NO HAY REGISTROS",JOptionPane.ERROR_MESSAGE);
         }
         else if(ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, cedula, 0)== true){
             
         }else{
-            JOptionPane.showMessageDialog(null, "No cuenta con una cita disponible");
+            JOptionPane.showMessageDialog(null, "No cuenta con una cita disponible","NO CUENTA CON CITA",JOptionPane.INFORMATION_MESSAGE);
         }
         
 //        if(lblDisponibilidadCita.getText().isEmpty()){
