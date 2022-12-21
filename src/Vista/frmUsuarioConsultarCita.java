@@ -26,10 +26,15 @@ public class frmUsuarioConsultarCita extends javax.swing.JFrame {
         for (int i = 0; i < tabla.getRowCount(); i++) {
             if (tabla.getValueAt(i, col).equals(dto)) {
                 Existe = true;
+                
+                String FechaCita = (String) frmPersonalCitasPorAtender.tblCitasSinAtender.getValueAt(i, 7);
+                String HoraCita =(String) frmPersonalCitasPorAtender.tblCitasSinAtender.getValueAt(i, 8);
+                JOptionPane.showMessageDialog(null, "Cuenta con una cita agendada para el dia "+FechaCita+" en el horario de "+HoraCita);
             }
         }
         return Existe;
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -157,7 +162,6 @@ public class frmUsuarioConsultarCita extends javax.swing.JFrame {
 
     private void btnVerificarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarCitaActionPerformed
         // TODO add your handling code here:
-
         String cedula = txtNumeroCedula.getText();
         frmPersonalCitasPorAtender abrir = new frmPersonalCitasPorAtender();
         abrir.setVisible(false);
@@ -171,7 +175,8 @@ public class frmUsuarioConsultarCita extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No hay registros de citas","Error",JOptionPane.ERROR_MESSAGE);
         }
         else if(ExisteEnTabla(Vista.frmPersonalCitasPorAtender.tblCitasSinAtender, cedula, 0)== true){
-            JOptionPane.showMessageDialog(null, "Cuenta con una cita agendada");
+            
+
         }else{
             JOptionPane.showMessageDialog(null, "No cuenta con una cita disponible");
         }
