@@ -21,11 +21,11 @@ public class HistorialClinico {
     private String MedicamentoAtendido;
     private String DosisAtendido;
     
-    public HistorialClinico(String identificacionA, String nombresA,String apellidosA,String edadA,String generoA, String telefonoA,String molestiaA, String FechaIngresoA, String HoraAtencionA, String MedicamentoA, String DosisA) {
+    public HistorialClinico(String identificacionAtendido, String nombresAtendido,String apellidosAtendido,String edadA,String generoA, String telefonoA,String molestiaA, String FechaIngresoA, String HoraAtencionA, String MedicamentoA, String DosisA) {
         
-        this.identificacionAtendido = identificacionA;
-        this.nombresAtendido = nombresA;
-        this.apellidosAtendido = apellidosA;
+        this.identificacionAtendido = identificacionAtendido;
+        this.nombresAtendido = nombresAtendido;
+        this.apellidosAtendido = apellidosAtendido;
         this.edadAtendido = edadA;
         this.generoAtendido = generoA;
         this.telefonoAtendido = telefonoA;
@@ -124,8 +124,5 @@ public class HistorialClinico {
     public void setDosisA(String DosisA) {
         this.DosisAtendido = DosisA;
     }
-    
-    
-    
-    
+
 }
