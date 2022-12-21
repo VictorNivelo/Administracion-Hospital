@@ -41,6 +41,14 @@ public class CitaMedica {
         this.id = id;
     }
 
+    public Receta getReceta() {
+        return receta;
+    }
+
+    public void setReceta(Receta receta) {
+        this.receta = receta;
+    }
+
     public Medico getMedicoAsignado() {
         return medicoAsignado;
     }
