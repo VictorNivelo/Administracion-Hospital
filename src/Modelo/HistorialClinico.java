@@ -9,120 +9,120 @@ package Modelo;
  * @author Victor
  */
 public class HistorialClinico {
-    private String identificacionA;
-    private String nombresA;
-    private String apellidosA;
-    private String telefonoA;
-    private String generoA;
-    private String edadA;
-    private String molestiaA;
-    private String FechaIngresoA;
-    private String HoraAtencionA;
-    private String MedicamentoA;
-    private String DosisA;
+    private String identificacionAtendido;
+    private String nombresAtendido;
+    private String apellidosAtendido;
+    private String telefonoAtendido;
+    private String generoAtendido;
+    private String edadAtendido;
+    private String molestiaAtendido;
+    private String FechaIngresoAtendido;
+    private String HoraAtencionAtendido;
+    private String MedicamentoAtendido;
+    private String DosisAtendido;
     
     public HistorialClinico(String identificacionA, String nombresA,String apellidosA,String edadA,String generoA, String telefonoA,String molestiaA, String FechaIngresoA, String HoraAtencionA, String MedicamentoA, String DosisA) {
         
-        this.identificacionA = identificacionA;
-        this.nombresA = nombresA;
-        this.apellidosA = apellidosA;
-        this.edadA = edadA;
-        this.generoA = generoA;
-        this.telefonoA = telefonoA;
-        this.molestiaA = molestiaA;
-        this.FechaIngresoA = FechaIngresoA;
-        this.HoraAtencionA = HoraAtencionA;
-        this.MedicamentoA = MedicamentoA;
-        this.DosisA = DosisA;
+        this.identificacionAtendido = identificacionA;
+        this.nombresAtendido = nombresA;
+        this.apellidosAtendido = apellidosA;
+        this.edadAtendido = edadA;
+        this.generoAtendido = generoA;
+        this.telefonoAtendido = telefonoA;
+        this.molestiaAtendido = molestiaA;
+        this.FechaIngresoAtendido = FechaIngresoA;
+        this.HoraAtencionAtendido = HoraAtencionA;
+        this.MedicamentoAtendido = MedicamentoA;
+        this.DosisAtendido = DosisA;
 
     }
 
     public String getIdentificacionA() {
-        return identificacionA;
+        return identificacionAtendido;
     }
 
     public void setIdentificacionA(String identificacionA) {
-        this.identificacionA = identificacionA;
+        this.identificacionAtendido = identificacionA;
     }
 
     public String getNombresA() {
-        return nombresA;
+        return nombresAtendido;
     }
 
     public void setNombresA(String nombresA) {
-        this.nombresA = nombresA;
+        this.nombresAtendido = nombresA;
     }
 
     public String getApellidosA() {
-        return apellidosA;
+        return apellidosAtendido;
     }
 
     public void setApellidosA(String apellidosA) {
-        this.apellidosA = apellidosA;
+        this.apellidosAtendido = apellidosA;
     }
 
     public String getTelefonoA() {
-        return telefonoA;
+        return telefonoAtendido;
     }
 
     public void setTelefonoA(String telefonoA) {
-        this.telefonoA = telefonoA;
+        this.telefonoAtendido = telefonoA;
     }
 
     public String getGeneroA() {
-        return generoA;
+        return generoAtendido;
     }
 
     public void setGeneroA(String generoA) {
-        this.generoA = generoA;
+        this.generoAtendido = generoA;
     }
 
     public String getEdadA() {
-        return edadA;
+        return edadAtendido;
     }
 
     public void setEdadA(String edadA) {
-        this.edadA = edadA;
+        this.edadAtendido = edadA;
     }
 
     public String getMolestiaA() {
-        return molestiaA;
+        return molestiaAtendido;
     }
 
     public void setMolestiaA(String molestiaA) {
-        this.molestiaA = molestiaA;
+        this.molestiaAtendido = molestiaA;
     }
 
     public String getFechaIngresoA() {
-        return FechaIngresoA;
+        return FechaIngresoAtendido;
     }
 
     public void setFechaIngresoA(String FechaIngresoA) {
-        this.FechaIngresoA = FechaIngresoA;
+        this.FechaIngresoAtendido = FechaIngresoA;
     }
 
     public String getHoraAtencionA() {
-        return HoraAtencionA;
+        return HoraAtencionAtendido;
     }
 
     public void setHoraAtencionA(String HoraAtencionA) {
-        this.HoraAtencionA = HoraAtencionA;
+        this.HoraAtencionAtendido = HoraAtencionA;
     }
 
     public String getMedicamentoA() {
-        return MedicamentoA;
+        return MedicamentoAtendido;
     }
 
     public void setMedicamentoA(String MedicamentoA) {
-        this.MedicamentoA = MedicamentoA;
+        this.MedicamentoAtendido = MedicamentoA;
     }
 
     public String getDosisA() {
-        return DosisA;
+        return DosisAtendido;
     }
 
     public void setDosisA(String DosisA) {
-        this.DosisA = DosisA;
+        this.DosisAtendido = DosisA;
     }
     
     
