@@ -1,5 +1,6 @@
 # Administracion-Hospital
 Trabajo grupal de estructura de datos
+Rama de trabajo: Desarrollo
 ###### Trabajo realizado en java, su funcion es administrar y gestionar un hospital de manera que permita realizar una consulta de las citas agendadas, agendar citas, gestionar los horarios de los doctores, guardar un registro de los pacientes atendidos y llevar el inventario para la asignacion de medicamentos
 >Integrantes:
 ```
