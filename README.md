@@ -9,4 +9,4 @@ Victor Nivelo.
 Jhonel Pesantes.
 ```
 ###### En base al TDA desarrollado en la materia de estructura de datos
-![This is an image](https://github.com/VictorNivelo/Administracion-Hospital/blob/Main/f781233c-4410-4449-8f59-1a7c65f1a674.jpg)
+![This is an image](https://github.com/VictorNivelo/Administracion-Hospital/blob/Main/TDA_Estructura_Datos_PF.jpeg)
