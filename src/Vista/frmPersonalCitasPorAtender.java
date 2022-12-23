@@ -28,19 +28,19 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
     public frmPersonalCitasPorAtender() {
         initComponents();
         this.setLocationRelativeTo(null);
-        CargarInterfaz();
-        CargarDatos();
+        CargarInterfazCitasAtender();
+        CargarDatosCitasAtender();
     }
 
 
-    public void CargarInterfaz() {
+    public void CargarInterfazCitasAtender() {
         String datos[][] = {};
         String columna[] = {"Cedula", "Nombres", "Apellidos", "Edad", "Genero", "Telefono", "Molestia", "Fecha", "Hora Atencion"};
         modelo = new DefaultTableModel(datos, columna);
         tblCitasSinAtender.setModel(modelo);
     }
 
-    public void CargarDatos() {
+    public void CargarDatosCitasAtender() {
         Paciente a;
         for (int i = 0; i < frmUsuarioSeleccionarFecha.contenedor.size(); i++) {
             a = (Paciente) frmUsuarioSeleccionarFecha.contenedor.get(i);
@@ -287,8 +287,20 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Asignar medicamentos");
 
+        txtAsignarMedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtAsignarMedicamentoKeyPressed(evt);
+            }
+        });
+
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("Dosis");
+
+        txtDosis.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDosisKeyPressed(evt);
+            }
+        });
 
         btnAsignarMedicamento.setText("ASIGNAR MEDICAMENTO");
         btnAsignarMedicamento.addActionListener(new java.awt.event.ActionListener() {
@@ -459,6 +471,20 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
         txtFechaIngreso.setText(String.valueOf(tblCitasSinAtender.getValueAt(seleccionar, 7)));
         txtHoraAtencion.setText(String.valueOf(tblCitasSinAtender.getValueAt(seleccionar, 8)));
     }//GEN-LAST:event_tblCitasSinAtenderMouseClicked
+
+    private void txtAsignarMedicamentoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAsignarMedicamentoKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == evt.VK_ENTER){
+            txtDosis.requestFocus();
+        }
+    }//GEN-LAST:event_txtAsignarMedicamentoKeyPressed
+
+    private void txtDosisKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDosisKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == evt.VK_ENTER){
+            btnAsignarMedicamento.requestFocus();
+        }
+    }//GEN-LAST:event_txtDosisKeyPressed
 
     /**
      * @param args the command line arguments

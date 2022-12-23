@@ -56,7 +56,6 @@ public class Utilidades {
         int counter = 0;
 
         try {
-            System.out.println("Cargando data...");
             Gson json = new Gson();
             FileReader fr = new FileReader("ObjectsArray" + ".json");
             StringBuilder jsons = new StringBuilder();

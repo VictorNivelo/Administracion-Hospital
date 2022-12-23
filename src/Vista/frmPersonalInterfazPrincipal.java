@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Victor
@@ -186,8 +188,10 @@ public class frmPersonalInterfazPrincipal extends javax.swing.JFrame {
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
-        
+        int valor = JOptionPane.showConfirmDialog(this,"¿Esta seguro que quiere salir del sistema?","CONFIRMACION DE SALIDA",JOptionPane.INFORMATION_MESSAGE);
+        if(valor == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnCitasPorAtenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCitasPorAtenderActionPerformed

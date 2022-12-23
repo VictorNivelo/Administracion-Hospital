@@ -43,6 +43,7 @@ public class frmPersonalLogin extends javax.swing.JFrame {
         btnIngresarLogin = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
+        btnCrearUsuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INGRESO A SISTEMA");
@@ -73,6 +74,11 @@ public class frmPersonalLogin extends javax.swing.JFrame {
         jLabel4.setText("Contraseña");
 
         txtContraseñaIngresoUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtContraseñaIngresoUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtContraseñaIngresoUsuarioKeyPressed(evt);
+            }
+        });
 
         btnIngresarLogin.setText("INGRESAR");
         btnIngresarLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +94,13 @@ public class frmPersonalLogin extends javax.swing.JFrame {
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegresarActionPerformed(evt);
+            }
+        });
+
+        btnCrearUsuario.setText("CREAR USUARIO");
+        btnCrearUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearUsuarioActionPerformed(evt);
             }
         });
 
@@ -108,12 +121,14 @@ public class frmPersonalLogin extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtContraseñaIngresoUsuario)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtNombreIngresoUsuario)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(btnRegresar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCrearUsuario)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnIngresarLogin)))))
                 .addContainerGap())
@@ -141,7 +156,8 @@ public class frmPersonalLogin extends javax.swing.JFrame {
                         .addGap(18, 20, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnIngresarLogin)
-                            .addComponent(btnRegresar))
+                            .addComponent(btnRegresar)
+                            .addComponent(btnCrearUsuario))
                         .addContainerGap())))
         );
 
@@ -177,7 +193,6 @@ public class frmPersonalLogin extends javax.swing.JFrame {
             // si se han colocado las credenciales de ingreso, intento el login
             try {
                 boolean loginExitoso = controlador.login(usuario, clave);
-                System.out.println(loginExitoso + " usuario: " + usuario + " clave: " + clave);
                 if (loginExitoso) {
                     frmPersonalInterfazPrincipal abrir = new frmPersonalInterfazPrincipal();
                     abrir.setVisible(true);
@@ -208,6 +223,19 @@ public class frmPersonalLogin extends javax.swing.JFrame {
             txtContraseñaIngresoUsuario.requestFocus();
         }
     }//GEN-LAST:event_txtNombreIngresoUsuarioKeyPressed
+
+    private void btnCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuarioActionPerformed
+        // TODO add your handling code here:
+        frmAdminRegistrarPersonal abrir = new frmAdminRegistrarPersonal();
+        abrir.setVisible(true);
+    }//GEN-LAST:event_btnCrearUsuarioActionPerformed
+
+    private void txtContraseñaIngresoUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaIngresoUsuarioKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == evt.VK_ENTER){
+            btnIngresarLogin.requestFocus();
+        }
+    }//GEN-LAST:event_txtContraseñaIngresoUsuarioKeyPressed
 
     /**
      * @param args the command line arguments
@@ -248,6 +276,7 @@ public class frmPersonalLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCrearUsuario;
     private javax.swing.JButton btnIngresarLogin;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JLabel jLabel1;

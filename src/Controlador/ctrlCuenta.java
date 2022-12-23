@@ -42,8 +42,6 @@ public class ctrlCuenta {
         for (int i = 0; i < ocupados; i++) {
             Cuenta cuenta = cuentas[i];
 
-            System.out.println("Ocupados: " + ocupados);
-            System.out.println("i: " + i);
 
             if (cuenta.getUsuario().equals(usuario)) {
                 return false;
@@ -55,7 +53,6 @@ public class ctrlCuenta {
 
     public boolean login(String usuario, String clave) {
         cargar();
-        System.out.println("Ocupados: " + ocupados);
         for (int i = 0; i < ocupados; i++) {
             Cuenta cuenta = cuentas[i];
             if (cuenta.getUsuario().equals(usuario)) {
@@ -82,7 +79,7 @@ public class ctrlCuenta {
         int counter = 0;
 
         try {
-            System.out.println("Cargando data...");
+
             Gson json = new Gson();
             FileReader fr = new FileReader("Cuentas" + ".json");
             StringBuilder jsons = new StringBuilder();

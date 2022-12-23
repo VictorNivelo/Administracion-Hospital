@@ -20,7 +20,7 @@ import javax.swing.JTable;
  * @author Victor
  */
 public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
-
+        
     public static LinkedList contenedor = new LinkedList();
 
     /**
@@ -72,6 +72,9 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
 
         txtFechaCita.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtFechaCita.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtFechaCitaKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtFechaCitaKeyTyped(evt);
             }
@@ -84,6 +87,11 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
         cbxHorarioAtencion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "7:00 - 8:00", "8:00 - 9:00", "9:00 - 10:00", "10:00 - 11:00", "11:00 -12:00", "13:00 - 14:00", "15:00 - 16:00", "16:00 - 17:00", "17:00 - 18:00" }));
         cbxHorarioAtencion.setSelectedItem(null);
         cbxHorarioAtencion.setToolTipText("");
+        cbxHorarioAtencion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cbxHorarioAtencionKeyPressed(evt);
+            }
+        });
 
         jLabel2.setBackground(new java.awt.Color(255, 153, 153));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 11)); // NOI18N
@@ -177,7 +185,6 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
 
     private void btnAgendarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarCitaActionPerformed
         // TODO add your handling code here:
-
         try {
             if (txtFechaCita.getText().isEmpty() || cbxHorarioAtencion.getSelectedItem() == null) {
                 JOptionPane.showMessageDialog(null, "Por favor ingrese todos los datos", "VALORES VACIOS", JOptionPane.WARNING_MESSAGE);
@@ -199,6 +206,7 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
                 if (resultado == true) {
                     frmPersonalCitasPorAtender abrir = new frmPersonalCitasPorAtender();
                     abrir.setVisible(false);
+                    
 
                     if (fechaSeleccionada.before(fechaHoy)) {
                         JOptionPane.showMessageDialog(null, "La fecha seleccionada ya ha pasado", "FECHA PASADO", JOptionPane.INFORMATION_MESSAGE);
@@ -209,6 +217,7 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
                     } else if (fechaSeleccionada.after(fechaLimite)) {
                         JOptionPane.showMessageDialog(null, "La fecha seleccionada es muy lejana", "FECHA DEMASIADO LEJANA", JOptionPane.INFORMATION_MESSAGE);
                     } else {
+                        
                         String NumeroCedula = Vista.frmUsuarioIngresarDatos.txtNumeroCedula.getText();
                         String NombrePaciente = Vista.frmUsuarioIngresarDatos.txtNombrePaciente.getText();
                         String ApellidoPaciente = Vista.frmUsuarioIngresarDatos.txtApellidoPaciente.getText();
@@ -221,7 +230,7 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
 
                         Paciente claseauto = new Paciente(NumeroCedula, NombrePaciente, ApellidoPaciente, EdadPaciente, GeneroPaciente, TelefonoPaciente, MolestiaPaciente, FechaAtencion, HoraAtencion);
                         contenedor.add(claseauto);
-
+                                                
                         JOptionPane.showMessageDialog(null, "CITA AGENDADA CON EXITO");
                     }
                 } else {
@@ -250,6 +259,20 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtFechaCitaKeyTyped
+
+    private void txtFechaCitaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFechaCitaKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == evt.VK_ENTER){
+            cbxHorarioAtencion.requestFocus();
+        }
+    }//GEN-LAST:event_txtFechaCitaKeyPressed
+
+    private void cbxHorarioAtencionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbxHorarioAtencionKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == evt.VK_ENTER){
+            btnAgendarCita.requestFocus();
+        }
+    }//GEN-LAST:event_cbxHorarioAtencionKeyPressed
 
     /**
      * @param args the command line arguments

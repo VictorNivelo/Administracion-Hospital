@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Victor
@@ -50,7 +52,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 255, 153));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("PACIENTE");
 
@@ -93,7 +95,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 204, 204));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("PERSONAL");
 
@@ -192,7 +194,10 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void btnSalirSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirSistemaActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        int valor = JOptionPane.showConfirmDialog(this,"¿Esta seguro que quiere salir del sistema?","CONFIRMACION DE SALIDA",JOptionPane.INFORMATION_MESSAGE);
+        if(valor == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
     }//GEN-LAST:event_btnSalirSistemaActionPerformed
 
     private void btnIngresarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarPacienteActionPerformed

@@ -20,8 +20,6 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
-   
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -206,6 +204,11 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
 
         txaMolestias.setColumns(20);
         txaMolestias.setRows(5);
+        txaMolestias.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txaMolestiasKeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(txaMolestias);
 
         jLabel9.setText("Numero celular");
@@ -491,6 +494,13 @@ public class frmUsuarioIngresarDatos extends javax.swing.JFrame {
             txtNumeroTelefono.requestFocus();
         }
     }//GEN-LAST:event_cbxGeneroPacienteKeyPressed
+
+    private void txaMolestiasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txaMolestiasKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == evt.VK_ENTER){
+            btnConfirmar.requestFocus();
+        }
+    }//GEN-LAST:event_txaMolestiasKeyPressed
 
     /**
      * @param args the command line arguments

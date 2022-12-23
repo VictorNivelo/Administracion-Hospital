@@ -29,7 +29,8 @@ public class frmUsuarioConsultarCita extends javax.swing.JFrame {
                 
                 String FechaCita = (String) frmPersonalCitasPorAtender.tblCitasSinAtender.getValueAt(i, 7);
                 String HoraCita =(String) frmPersonalCitasPorAtender.tblCitasSinAtender.getValueAt(i, 8);
-                JOptionPane.showMessageDialog(null, "Cuenta con una cita agendada para el dia "+FechaCita+" en el horario de "+HoraCita,"CUENTA CON CITA",JOptionPane.INFORMATION_MESSAGE);
+                String CedulaConsulta =(String) frmPersonalCitasPorAtender.tblCitasSinAtender.getValueAt(i, 0);
+                JOptionPane.showMessageDialog(null,"El usuario con numero de celuda "+CedulaConsulta +" cuenta con una cita para el dia "+FechaCita+" en el horario de "+HoraCita,"CUENTA CON CITA",JOptionPane.INFORMATION_MESSAGE);
             }
         }
         return Existe;
@@ -65,6 +66,9 @@ public class frmUsuarioConsultarCita extends javax.swing.JFrame {
 
         txtNumeroCedula.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNumeroCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNumeroCedulaKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNumeroCedulaKeyTyped(evt);
             }
@@ -131,7 +135,7 @@ public class frmUsuarioConsultarCita extends javax.swing.JFrame {
                         .addComponent(txtNumeroCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
-                        .addGap(35, 35, 35)
+                        .addGap(32, 32, 32)
                         .addComponent(btnVerificarCita)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnRegresar))
@@ -196,6 +200,13 @@ public class frmUsuarioConsultarCita extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtNumeroCedulaKeyTyped
+
+    private void txtNumeroCedulaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroCedulaKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == evt.VK_ENTER){
+            btnVerificarCita.requestFocus();
+        }
+    }//GEN-LAST:event_txtNumeroCedulaKeyPressed
 
     /**
      * @param args the command line arguments

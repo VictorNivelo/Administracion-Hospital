@@ -51,8 +51,6 @@ public class Cuenta {
     public boolean login(String usuario, String clave) {
         if(this.usuario == null || this.clave == null) return false;
         
-        System.out.println("Ingresados: " + usuario + " - " + clave);
-        System.out.println("Reales: " + this.usuario + " - " + this.clave);
         
         return usuario.equals(this.usuario) && clave.equals(this.clave);
     }
