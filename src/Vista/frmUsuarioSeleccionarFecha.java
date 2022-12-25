@@ -255,7 +255,7 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
         } catch (ParseException ex) {
         }
                 Collections.sort(contenedor, (Paciente g, Paciente h) -> g.getHoraAtencion().compareTo(h.getHoraAtencion()));
-        System.out.println("holaaa");
+
     }//GEN-LAST:event_btnAgendarCitaActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed

@@ -48,7 +48,7 @@ public class frmPersonalCitasPorAtender extends javax.swing.JFrame {
         Collections.sort(contenedor, (Paciente c, Paciente d) -> c.getMes().compareTo(d.getMes()));
         Collections.sort(contenedor, (Paciente e, Paciente f) -> e.getAnio().compareTo(f.getAnio()));
         for (int i = contenedor.size()-1; i >= 0; i--) {
-            a = (Paciente) frmUsuarioSeleccionarFecha.contenedor.get(i);
+            a = (Paciente) frmUsuarioSeleccionarFecha.contenedor.get(i); 
             modelo.insertRow(contador, new Object[]{});
             modelo.setValueAt(a.getIdentificacion(), contador, 0);
             modelo.setValueAt(a.getNombres(), contador, 1);
