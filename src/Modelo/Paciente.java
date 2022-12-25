@@ -49,24 +49,7 @@ public class Paciente {
         this.anio = anio;
 
     }
-    
 
-    
-//    private ArrayList <Paciente> pacienteU;
-//    
-//    public Paciente(String identificacionL, String nombresL, String apellidosL, String edadL, GeneroComboBox generoL, String telefonoL, String fechaIngresoL, String horaAtencionL, String molestiasL){
-//        this.identificacion = identificacionL;
-//        this.nombres = nombresL;
-//        this.apellidos = apellidosL;
-//        this.edad = edadL;
-//        this.genero = generoL;
-//        this.telefono = telefonoL;
-//        this.FechaIngreso = fechaIngresoL;
-//        this.HoraAtencion = horaAtencionL;
-//        this.molestia = molestiasL;
-//        
-//        this.pacienteU = new ArrayList(); 
-//    }
 
     public String getGenero() {
         return genero;
