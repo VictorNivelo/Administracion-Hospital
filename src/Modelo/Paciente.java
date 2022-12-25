@@ -27,6 +27,7 @@ public class Paciente {
     private String molestia;
     private String FechaIngreso;
     private String HoraAtencion;
+    private String dia;
     
     private Paciente unionPaciente[];
     

@@ -239,6 +239,8 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
             }
         } catch (ParseException ex) {
         }
+        
+        System.out.println("pr");
     }//GEN-LAST:event_btnAgendarCitaActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
