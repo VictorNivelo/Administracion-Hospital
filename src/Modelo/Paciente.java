@@ -28,10 +28,13 @@ public class Paciente {
     private String FechaIngreso;
     private String HoraAtencion;
     private String dia;
+    private String mes;
+    private String anio;
+    
     
     private Paciente unionPaciente[];
     
-    public Paciente(String identificacion, String nombres,String apellidos,String edad,String genero, String telefono,String molestia, String FechaIngreso, String HoraAtencion) {
+    public Paciente(String identificacion, String nombres,String apellidos,String edad,String genero, String telefono,String molestia, String FechaIngreso, String HoraAtencion, String dia, String mes, String anio ) {
         
         this.identificacion = identificacion;
         this.nombres = nombres;
@@ -42,6 +45,9 @@ public class Paciente {
         this.molestia = molestia;
         this.FechaIngreso = FechaIngreso;
         this.HoraAtencion = HoraAtencion;
+        this.dia = dia;
+        this.mes = mes;
+        this.anio = anio;
 
     }
     
@@ -160,5 +166,30 @@ public class Paciente {
     public void setUnionPaciente(Paciente[] unionPaciente) {
         this.unionPaciente = unionPaciente;
     }
+
+    public String getDia() {
+        return dia;
+    }
+
+    public void setDia(String dia) {
+        this.dia = dia;
+    }
+
+    public String getMes() {
+        return mes;
+    }
+
+    public void setMes(String mes) {
+        this.mes = mes;
+    }
+
+    public String getAnio() {
+        return anio;
+    }
+
+    public void setAnio(String anio) {
+        this.anio = anio;
+    }
+    
  
 }

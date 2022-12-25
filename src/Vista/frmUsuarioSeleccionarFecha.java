@@ -9,6 +9,7 @@ import static Utilidades.UtilidadesFechas.validarFecha;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
@@ -84,7 +85,7 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
         jLabel7.setText("Horarios de atencion");
 
         cbxHorarioAtencion.setMaximumRowCount(9);
-        cbxHorarioAtencion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "7:00 - 8:00", "8:00 - 9:00", "9:00 - 10:00", "10:00 - 11:00", "11:00 -12:00", "13:00 - 14:00", "15:00 - 16:00", "16:00 - 17:00", "17:00 - 18:00" }));
+        cbxHorarioAtencion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "07:00 - 08:00", "08:00 - 09:00", "09:00 - 10:00", "10:00 - 11:00", "11:00 - 12:00", "13:00 - 14:00", "15:00 - 16:00", "16:00 - 17:00", "17:00 - 18:00" }));
         cbxHorarioAtencion.setSelectedItem(null);
         cbxHorarioAtencion.setToolTipText("");
         cbxHorarioAtencion.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -227,8 +228,31 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
                         String MolestiaPaciente = Vista.frmUsuarioIngresarDatos.txaMolestias.getText();
                         String FechaAtencion = txtFechaCita.getText();
                         String HoraAtencion = cbxHorarioAtencion.getSelectedItem().toString();
+                        
+                        Date miFecha = new SimpleDateFormat("dd/MM/yyyy").parse(txtFechaCita.getText());
 
-                        Paciente claseauto = new Paciente(NumeroCedula, NombrePaciente, ApellidoPaciente, EdadPaciente, GeneroPaciente, TelefonoPaciente, MolestiaPaciente, FechaAtencion, HoraAtencion);
+                        //creo un calendario
+
+                        //establezco mi fecha
+                        calendario.setTime(miFecha);
+
+                        //obtener el año
+                        int anio = calendario.get(Calendar.YEAR);
+                        //obtener el mes (0-11 ::: enero es 0 y diciembre es 11)
+                        int mes = calendario.get(Calendar.MONTH);
+                        //obtener el dia del mes (1-31)
+                        int dia = calendario.get(Calendar.DAY_OF_MONTH);
+
+
+                        String Dia = String.valueOf(dia);
+                        String Mes = String.valueOf(mes);
+                        String Anio = String.valueOf(anio);
+
+                       
+
+                        Paciente claseauto = new Paciente(NumeroCedula, NombrePaciente, ApellidoPaciente, EdadPaciente, GeneroPaciente, TelefonoPaciente, MolestiaPaciente, FechaAtencion, HoraAtencion, Dia, Mes, Anio);
+                        
+                        
                         contenedor.add(claseauto);
                                                 
                         JOptionPane.showMessageDialog(null, "CITA AGENDADA CON EXITO");
@@ -240,8 +264,11 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
         } catch (ParseException ex) {
         }
         
-        System.out.println("pr");
-        System.out.println("pr");
+        Collections.sort(contenedor, (Paciente g, Paciente h) -> g.getHoraAtencion().compareTo(h.getHoraAtencion()));
+
+
+
+    
     }//GEN-LAST:event_btnAgendarCitaActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
