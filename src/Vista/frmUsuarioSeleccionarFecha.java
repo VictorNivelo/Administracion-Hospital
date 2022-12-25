@@ -230,29 +230,16 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
                         String HoraAtencion = cbxHorarioAtencion.getSelectedItem().toString();
                         
                         Date miFecha = new SimpleDateFormat("dd/MM/yyyy").parse(txtFechaCita.getText());
-
-                        //creo un calendario
-
-                        //establezco mi fecha
                         calendario.setTime(miFecha);
-
-                        //obtener el año
                         int anio = calendario.get(Calendar.YEAR);
-                        //obtener el mes (0-11 ::: enero es 0 y diciembre es 11)
                         int mes = calendario.get(Calendar.MONTH);
-                        //obtener el dia del mes (1-31)
                         int dia = calendario.get(Calendar.DAY_OF_MONTH);
-
 
                         String Dia = String.valueOf(dia);
                         String Mes = String.valueOf(mes);
                         String Anio = String.valueOf(anio);
-
-                       
-
+                
                         Paciente claseauto = new Paciente(NumeroCedula, NombrePaciente, ApellidoPaciente, EdadPaciente, GeneroPaciente, TelefonoPaciente, MolestiaPaciente, FechaAtencion, HoraAtencion, Dia, Mes, Anio);
-                        
-                        
                         contenedor.add(claseauto);
                                                 
                         JOptionPane.showMessageDialog(null, "CITA AGENDADA CON EXITO");
@@ -263,12 +250,7 @@ public class frmUsuarioSeleccionarFecha extends javax.swing.JFrame {
             }
         } catch (ParseException ex) {
         }
-        
         Collections.sort(contenedor, (Paciente g, Paciente h) -> g.getHoraAtencion().compareTo(h.getHoraAtencion()));
-
-
-
-    
     }//GEN-LAST:event_btnAgendarCitaActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
