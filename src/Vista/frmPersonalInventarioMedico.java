@@ -1,17 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Vista;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author Victor
+ * @author Victor Nivelo
+ * @author Jaime Mendoza
  */
 public class frmPersonalInventarioMedico extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form frmPersonalInventarioMedico
      */
@@ -19,8 +17,6 @@ public class frmPersonalInventarioMedico extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,15 +27,33 @@ public class frmPersonalInventarioMedico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         cbxMedicamentos = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        txtCantidad = new javax.swing.JTextField();
         btnRegresar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnAgregarMedicamento = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblMedicamentos = new javax.swing.JTable();
+        btnVerificarMedicamento = new javax.swing.JButton();
+        cbxCantidad = new javax.swing.JComboBox<>();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INVENTARIO");
@@ -55,12 +69,6 @@ public class frmPersonalInventarioMedico extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Cantidad");
-
-        txtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtCantidadKeyTyped(evt);
-            }
-        });
 
         btnRegresar.setText("REGRESAR");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
@@ -79,6 +87,23 @@ public class frmPersonalInventarioMedico extends javax.swing.JFrame {
             }
         });
 
+        tblMedicamentos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(tblMedicamentos);
+
+        btnVerificarMedicamento.setText("VER MEDICAMENTO DISPONIBLE");
+        btnVerificarMedicamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerificarMedicamentoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -86,18 +111,22 @@ public class frmPersonalInventarioMedico extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cbxMedicamentos, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtCantidad)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnRegresar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAgregarMedicamento)))
-                .addContainerGap())
+                        .addGap(34, 34, 34)
+                        .addComponent(btnAgregarMedicamento))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbxMedicamentos, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbxCantidad, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVerificarMedicamento))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,19 +134,28 @@ public class frmPersonalInventarioMedico extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbxMedicamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnRegresar)
-                            .addComponent(btnAgregarMedicamento)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cbxMedicamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbxCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnRegresar)
+                                    .addComponent(btnAgregarMedicamento)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnVerificarMedicamento)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -126,9 +164,7 @@ public class frmPersonalInventarioMedico extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,28 +181,65 @@ public class frmPersonalInventarioMedico extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnRegresarActionPerformed
 
-    private void txtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadKeyTyped
-        // TODO add your handling code here:
-        Character c = evt.getKeyChar();
-        if(!Character.isDigit(c)){
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtCantidadKeyTyped
-
     private void btnAgregarMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarMedicamentoActionPerformed
         // TODO add your handling code here:
         String AgregarMedicamento;
+        String Cantidad;
         
-        AgregarMedicamento = JOptionPane.showInputDialog(null,"Escribir el medicamento a añadir",null);
+        AgregarMedicamento = JOptionPane.showInputDialog(null, "Escribir el medicamento a añadir", null);
+        Cantidad = JOptionPane.showInputDialog(null, "Escribir la cantidad a añadir", null);
 
-        if(AgregarMedicamento.isEmpty()){
+        if (AgregarMedicamento.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor ingrese el medicamento que quiere ingresar", "MEDICAMENTO VACIO", JOptionPane.ERROR_MESSAGE);
-        }else{
-
-            cbxMedicamentos.addItem(AgregarMedicamento);
+        } 
+        else if(Cantidad.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese la cantidad que quiere ingresar", "CANTIDAD VACIO", JOptionPane.ERROR_MESSAGE);
         }
-        
+        else {
+            cbxMedicamentos.addItem(AgregarMedicamento);
+            cbxCantidad.addItem(Cantidad);
+        }
+
     }//GEN-LAST:event_btnAgregarMedicamentoActionPerformed
+
+    private void btnVerificarMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarMedicamentoActionPerformed
+        // TODO add your handling code here:
+        
+        
+
+        if(cbxMedicamentos.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "No hay medicamentos para agregar", "MEDICAMENTO VACIO", JOptionPane.ERROR_MESSAGE);
+        }
+        else if(cbxCantidad.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "No se a agregado la cantidad", "CANTIDAD VACIA", JOptionPane.ERROR_MESSAGE);
+        }
+//        else if (tblMedicamentos.getRowCount() == 0) {
+//            JOptionPane.showMessageDialog(null, "No se han agregado medicamentos", "INVENTARIO VACIO", JOptionPane.ERROR_MESSAGE);
+//        } 
+        else {
+            JOptionPane.showMessageDialog(null, "El inventario es el siguiente", "INVENTARIO", JOptionPane.INFORMATION_MESSAGE);
+            int numeroDeOpciones = cbxMedicamentos.getItemCount();
+
+            String[] opciones = new String[numeroDeOpciones];
+
+            String[] cantidad = new String[numeroDeOpciones];
+
+            for (int i = 0; i < numeroDeOpciones; i++) {
+                opciones[i] = cbxMedicamentos.getItemAt(i);
+            }
+
+            for (int j = 0; j < numeroDeOpciones; j++) {
+                cantidad[j] = cbxCantidad.getItemAt(j);
+            }
+
+            DefaultTableModel modelo = new DefaultTableModel();
+
+            tblMedicamentos.setModel(modelo);
+
+            modelo.addColumn("Medicina", opciones);
+            modelo.addColumn("Cantidad", cantidad);
+        }
+    }//GEN-LAST:event_btnVerificarMedicamentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,12 +279,17 @@ public class frmPersonalInventarioMedico extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarMedicamento;
     private javax.swing.JButton btnRegresar;
+    private javax.swing.JButton btnVerificarMedicamento;
+    private javax.swing.JComboBox<String> cbxCantidad;
     private javax.swing.JComboBox<String> cbxMedicamentos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtCantidad;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblMedicamentos;
     // End of variables declaration//GEN-END:variables
 }
