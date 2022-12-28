@@ -194,7 +194,7 @@ public class frmPersonalLogin extends javax.swing.JFrame {
             try {
                 boolean loginExitoso = controlador.login(usuario, clave);
                 if (loginExitoso) {
-                    frmPersonalInterfazPrincipal abrir = new frmPersonalInterfazPrincipal();
+                    frmPersonarSeleccionarPersonal abrir = new frmPersonarSeleccionarPersonal();
                     abrir.setVisible(true);
                     this.setVisible(false);
                 } else {

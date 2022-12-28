@@ -12,7 +12,8 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Victor
+ * @author Victor Nivelo
+ * @author Jaime Mendoza
  */
 public class frmAdminRegistrarPersonal extends javax.swing.JFrame {
 
@@ -60,6 +61,7 @@ public class frmAdminRegistrarPersonal extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         txtClave = new javax.swing.JTextField();
+        cbxEspecialiadad = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INGRESAR DATOS DEL PACIENTE");
@@ -248,6 +250,9 @@ public class frmAdminRegistrarPersonal extends javax.swing.JFrame {
             }
         });
 
+        cbxEspecialiadad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enfermera", "Doctor" }));
+        cbxEspecialiadad.setSelectedItem(null);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -279,7 +284,8 @@ public class frmAdminRegistrarPersonal extends javax.swing.JFrame {
                                         .addGap(12, 12, 12)
                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txtClave, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))))
+                                            .addComponent(txtClave, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                                            .addComponent(cbxEspecialiadad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -302,7 +308,9 @@ public class frmAdminRegistrarPersonal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbxEspecialiadad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -328,44 +336,47 @@ public class frmAdminRegistrarPersonal extends javax.swing.JFrame {
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
         // TODO add your handling code here:
-        try {
-            String cedula = txtNumeroCedula.getText();
-            String nombres = txtNombrePaciente.getText();
-            String apellidos = txtApellidoPaciente.getText();
-            String genero = cbxGeneroPaciente.getName();
-            String usuario = txtUsuario.getText();
-            String clave = txtClave.getText();
-
-            Persona persona = new Persona();
-            Cuenta cuenta = new Cuenta();
-            cuenta.setPersona(persona);
-            cuenta.setUsuario(usuario);
-            cuenta.setClave(clave);
-            cuenta.getPersona().setNombres(nombres);
-            cuenta.getPersona().setApellidos(apellidos);
-            cuenta.getPersona().setGenero(genero);
-            cuenta.getPersona().setIdentificacion(cedula);
-
+        if (cbxEspecialiadad.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(null, "Se nesecita escoger una especialidad", "ESPECIALIDAD VACIA", JOptionPane.WARNING_MESSAGE);
+        } else {
             try {
-                controlador.registrarUsuario(cuenta);
-            } catch (IOException e) {
+                String cedula = txtNumeroCedula.getText();
+                String nombres = txtNombrePaciente.getText();
+                String apellidos = txtApellidoPaciente.getText();
+                String genero = cbxGeneroPaciente.getName();
+                String usuario = txtUsuario.getText();
+                String clave = txtClave.getText();
+
+                Persona persona = new Persona();
+                Cuenta cuenta = new Cuenta();
+                cuenta.setPersona(persona);
+                cuenta.setUsuario(usuario);
+                cuenta.setClave(clave);
+                cuenta.getPersona().setNombres(nombres);
+                cuenta.getPersona().setApellidos(apellidos);
+                cuenta.getPersona().setGenero(genero);
+                cuenta.getPersona().setIdentificacion(cedula);
+
+                try {
+                    controlador.registrarUsuario(cuenta);
+                } catch (IOException e) {
+                    JOptionPane.showMessageDialog(
+                            null,
+                            e.getMessage(),
+                            "Ha ocurrido un error",
+                            JOptionPane.ERROR_MESSAGE
+                    );
+                }
+            } catch (Error e) {
                 JOptionPane.showMessageDialog(
                         null,
                         e.getMessage(),
                         "Ha ocurrido un error",
                         JOptionPane.ERROR_MESSAGE
                 );
+                System.out.println("Error al crear usuario: " + e.getMessage());
             }
-        } catch (Error e) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    e.getMessage(),
-                    "Ha ocurrido un error",
-                    JOptionPane.ERROR_MESSAGE
-            );
-            System.out.println("Error al crear usuario: " + e.getMessage());
         }
-
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     private void txtNumeroCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroCedulaKeyTyped
@@ -512,6 +523,7 @@ public class frmAdminRegistrarPersonal extends javax.swing.JFrame {
     private javax.swing.JButton btnRegresarInicio;
     public javax.swing.JComboBox<String> cbxAnio;
     public javax.swing.JComboBox<String> cbxDia;
+    private javax.swing.JComboBox<String> cbxEspecialiadad;
     public static javax.swing.JComboBox<String> cbxGeneroPaciente;
     public javax.swing.JComboBox<String> cbxMes;
     private javax.swing.JLabel jLabel1;
